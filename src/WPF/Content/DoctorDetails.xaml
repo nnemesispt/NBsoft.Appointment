@@ -1,0 +1,141 @@
+﻿<UserControl x:Class="NBsoft.Appointment.WPF.Content.DoctorDetails"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NBsoft.Appointment.WPF.Content"             
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:validationrules="clr-namespace:NBsoft.Appointment.WPF.Validators"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800">
+    <Grid >
+        <Border Background="Black" Opacity="0.1" CornerRadius="4" />
+        <Grid  x:Name="GridDetails1"  Margin="{StaticResource ContentMargin}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="100*" />
+                
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="100*" />
+            </Grid.RowDefinitions>
+            <Grid.Resources>
+                <Style TargetType="StackPanel">
+                    <Setter Property="Orientation" Value="Horizontal" />
+                    <Setter Property="Margin" Value="0,0,0,4" />
+                </Style>
+                <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+                    <Setter Property="MinWidth" Value="90" />
+                    <Setter Property="Margin" Value="0,0,4,0" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                </Style>
+                <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+                    <Setter Property="MinWidth" Value="100" />
+                </Style>
+                <Style TargetType="ComboBox" BasedOn="{StaticResource {x:Type ComboBox}}">
+                    <Setter Property="MinWidth" Value="80" />
+                </Style>
+            </Grid.Resources>
+
+            <Border Grid.Column="0" Margin="2"  >
+                <Grid >
+                    <ScrollViewer  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" >
+                        <Grid>
+                            <StackPanel x:Name="Form1" Orientation="Vertical" Grid.Column="0">
+                                <StackPanel>
+                                    <Label Content="{DynamicResource app.doctor.details.id}" Target="{Binding ElementName=TxtId}"/>
+                                    <TextBox x:Name="TxtId"  Text="{Binding Doctor.Id, Mode=OneTime}" IsReadOnly="True"  />
+                                    <DatePickerTextBox x:Name="TxtDateCreated" Text="{Binding Doctor.CreationDate, Mode=OneTime}" IsReadOnly="True"  Margin="5,0,0,0"  />
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="{DynamicResource app.doctor.details.name}" Target="{Binding ElementName=TxtName}"/>
+                                    <TextBox x:Name="TxtName" MinWidth="280">
+                                        <TextBox.Text>
+                                            <Binding Path="Doctor.Name" Mode="TwoWay" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" >
+                                                <Binding.ValidationRules>
+                                                    <validationrules:EmptyStringValidationRule/>
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </TextBox.Text>
+                                    </TextBox>
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="{DynamicResource app.doctor.details.address}" Target="{Binding ElementName=TxtAddress}"/>
+                                    <TextBox x:Name="TxtAddress" Text="{Binding Doctor.Address, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" MinWidth="280" />
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="{DynamicResource app.doctor.details.postalcode}" Target="{Binding ElementName=TxtPostalCode}"/>
+                                    <TextBox x:Name="TxtPostalCode" Text="{Binding Doctor.PostalCode, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"  />
+                                    <TextBox x:Name="TxtCity" Text="{Binding Doctor.City, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Margin="5,0,0,0" MinWidth="155"  />
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="{DynamicResource app.doctor.details.country}" Target="{Binding ElementName=TxtCountry}"/>
+                                    <TextBox x:Name="TxtCountry" Text="{Binding Doctor.Country, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"  />
+                                    <Label Content="{DynamicResource app.doctor.details.contact}" Target="{Binding ElementName=TxtContact}" Margin="5,0,0,0" MinWidth="10"/>
+                                    <TextBox x:Name="TxtContact" Text="{Binding Doctor.Contact, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Margin="5,0,0,0" MinWidth="102" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+            <Border Grid.Column="1" Margin="10,2,2,2"  >
+                <Grid>
+                    <ScrollViewer  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" >
+                        <StackPanel x:Name="Form2" Orientation="Vertical" Grid.Column="0">
+                            <StackPanel>
+                                <Label Content="{DynamicResource app.doctor.details.taxidnumber}" Target="{Binding ElementName=TxtTaxIdNumber}"/>
+                                <TextBox x:Name="TxtTaxIdNumber">
+                                    <TextBox.Text>
+                                        <Binding Path="Doctor.TaxIdNumber" Mode="TwoWay" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" >
+                                            <Binding.ValidationRules>
+                                                <validationrules:EmptyStringValidationRule/>
+                                            </Binding.ValidationRules>
+                                        </Binding>
+                                    </TextBox.Text>
+                                </TextBox>
+                            </StackPanel>
+                            <StackPanel>
+                                <Label Content="{DynamicResource app.doctor.details.mobilephone}" Target="{Binding ElementName=TxtMobilePhone}"/>
+                                <TextBox x:Name="TxtMobilePhone" Text="{Binding Doctor.MobilePhone, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"  />
+                                <Label Content="{DynamicResource app.doctor.details.telephone}" Target="{Binding ElementName=TxtTelephone}" Margin="5,0,0,0" MinWidth="60" />
+                                <TextBox x:Name="TxtTelephone" Text="{Binding Doctor.Telephone, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"  />
+                            </StackPanel>
+                            <StackPanel>
+                                <Label Content="{DynamicResource app.doctor.details.email}" Target="{Binding ElementName=TxtEMail}" />
+                                <TextBox x:Name="TxtEMail" Text="{Binding Doctor.EMail, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"  />
+                                <Label Content="{DynamicResource app.doctor.details.fax}" Target="{Binding ElementName=TxtFax}" Margin="5,0,0,0" MinWidth="25" />
+                                <TextBox x:Name="TxtFax" Text="{Binding Doctor.Fax, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" MinWidth="30"  />
+                            </StackPanel>
+                            <StackPanel>
+                                <Label Content="{DynamicResource app.doctor.details.url}" Target="{Binding ElementName=TxtURL}"/>
+                                <TextBox x:Name="TxtURL" Text="{Binding Doctor.URL, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" MinWidth="240"  />
+                            </StackPanel>
+                            <StackPanel>
+                                <Label Content="{DynamicResource app.doctor.details.iban}" Target="{Binding ElementName=TxtIBAN}" />
+                                <TextBox x:Name="TxtIBAN" Text="{Binding Doctor.IBAN, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" MinWidth="240"  />
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+            
+            <Border Grid.Row="1" Grid.ColumnSpan="2" Margin="2" >
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="100*" />
+                    </Grid.ColumnDefinitions>
+                    <Label VerticalAlignment="Top" Content="{DynamicResource app.doctor.details.comments}" Target="{Binding ElementName=TxtComments}"/>
+                    <TextBox x:Name="TxtComments" Grid.Column="1" Text="{Binding Doctor.Comments, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" MinHeight="60" MinWidth="240" AcceptsReturn="True"    />
+                </Grid>
+            </Border>
+            <Border Grid.Row="2" Grid.ColumnSpan="2" Margin="2"  BorderBrush="{DynamicResource UserAccent}" BorderThickness="1" >
+            </Border>
+            <GridSplitter x:Name="gridSplitter" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="3" Background="{DynamicResource UserAccent}"/>
+
+        </Grid>
+    </Grid>
+</UserControl>

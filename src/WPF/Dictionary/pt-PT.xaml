@@ -1,0 +1,221 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+	<system:String x:Key="app.error">Ocorreram erros</system:String>	
+	<system:String x:Key="app.nochanges">Não existem alterações.</system:String>	
+	<system:String x:Key="app.invalidselection">Seleção inválida.</system:String>	
+	<system:String x:Key="app.invalidlicense">Licença Inválida. Por favor contacte o suporte através do e-mail: suporte@nbsoft.pt</system:String>	
+	<system:String x:Key="app.database.updatefailed">Ocorreram erros ao atualizar a base de dados.</system:String>
+    <system:String x:Key="app.license.limitreached" xml:space="preserve">Limite da Licença atingido. Não é possível criar mais registos. 
+Por favor contacte o suporte através do e-mail: suporte@nbsoft.pt</system:String>
+    
+
+    <system:String x:Key="app.logonwindow.cancel">Cancelar</system:String>
+	<system:String x:Key="app.logonwindow.ok">Ok</system:String>
+	<system:String x:Key="app.logonwindow.user">Utilizador</system:String>
+	<system:String x:Key="app.logonwindow.password">Senha</system:String>	
+	<system:String x:Key="app.logonwindow.invaliduser">Utilizador Inválido</system:String>	
+	<system:String x:Key="app.logonwindow.authfailed">Autenticação Falhou</system:String>	
+	
+	<system:String x:Key="app.mainwindow.settings">Definições</system:String>
+	<system:String x:Key="app.mainwindow.help">Ajuda</system:String>
+	<system:String x:Key="app.mainwindow.start">Início</system:String>
+	<system:String x:Key="app.mainwindow.welcome">Bem-vindo</system:String>
+	<system:String x:Key="app.mainwindow.dashboard">Painel de Gestão</system:String>
+	<system:String x:Key="app.mainwindow.tables">Tabelas</system:String>
+	<system:String x:Key="app.mainwindow.info">Informação</system:String>
+	<system:String x:Key="app.mainwindow.customers">Clientes</system:String>
+	<system:String x:Key="app.mainwindow.doctors">Doutores</system:String>
+	<system:String x:Key="app.mainwindow.appointmenttype">Tipos de Consulta</system:String>
+	<system:String x:Key="app.mainwindow.management">Gestão</system:String>
+	<system:String x:Key="app.mainwindow.appointments">Consultas</system:String>
+	
+	<system:String x:Key="app.taskbar.new">Novo Registo</system:String>	
+	<system:String x:Key="app.taskbar.edit">Editar Registo</system:String>	
+	<system:String x:Key="app.taskbar.save">Gravar Alterações</system:String>	
+	<system:String x:Key="app.taskbar.delete">Apagar Registo</system:String>	
+	<system:String x:Key="app.taskbar.print">Imprimir</system:String>	
+	<system:String x:Key="app.taskbar.search">Procurar</system:String>	
+	
+	<system:String x:Key="app.tablesearch.id">Identificador</system:String>	
+	<system:String x:Key="app.tablesearch.name">Nome</system:String>	
+	<system:String x:Key="app.tablesearch.ok">OK</system:String>		
+	<system:String x:Key="app.tablesearch.cancel">Cancelar</system:String>	
+	
+	<system:String x:Key="app.welcomepage.welcometext" xml:space="preserve">Bem-vindo ao [b]NBsoft.Appointment[/b].
+Para um resumo do sistema por favor consulte o {0}</system:String>
+	<system:String x:Key="app.welcomepage.dashboard">Painel de Gestão</system:String>
+	
+	<system:String x:Key="app.dashboard.header">Painel de Gestão</system:String>
+	
+	<system:String x:Key="app.dashboard.start.nextappointments">Proximas Consultas</system:String>
+	<system:String x:Key="app.dashboard.start.appointments">Estatisticas das Consultas</system:String>
+	<system:String x:Key="app.dashboard.start.appointmentscount">Número de Consultas</system:String>
+	<system:String x:Key="app.dashboard.start.appointmentsdoctor">Consultas por Médico (últimos 12 meses)</system:String>
+	
+	<system:String x:Key="app.settings.appearance">Aparência</system:String>	
+	<system:String x:Key="app.settings.language">Idioma</system:String>	
+	
+	<system:String x:Key="app.settings.appearance.title">Aparência</system:String>	
+	<system:String x:Key="app.settings.appearance.theme">Tema</system:String>	
+	<system:String x:Key="app.settings.appearance.fontsize">Tamanho de Letra</system:String>	
+	
+	<system:String x:Key="app.settings.language.title">Idioma da Aplicação</system:String>	
+	<system:String x:Key="app.settings.language.dictionary">Dicionário</system:String>	
+	
+	<system:String x:Key="app.user.title">Dados do Utilizador</system:String>	
+	<system:String x:Key="app.user.logon">Conta</system:String>	
+	<system:String x:Key="app.user.name">Nome</system:String>	
+	<system:String x:Key="app.user.lastname">Apelido</system:String>	
+	<system:String x:Key="app.user.address">Morada</system:String>	
+	<system:String x:Key="app.user.postalcode">Código Postal</system:String>	
+	<system:String x:Key="app.user.city">Cidade</system:String>	
+	<system:String x:Key="app.user.country">País</system:String>	
+	<system:String x:Key="app.user.pin">PIN</system:String>	
+	<system:String x:Key="app.user.changepassword">Alterar Senha</system:String>	
+	<system:String x:Key="app.user.save">Gravar</system:String>
+	<system:String x:Key="app.user.saveok">Utilizador gravado com sucesso.</system:String>
+	<system:String x:Key="app.user.pin.mustbenumber">O PIN tem de ser um número.</system:String>
+	<system:String x:Key="app.user.pin.tooshort">O PIN tem de ter no mínimo 3 digitos</system:String>
+	<system:String x:Key="app.user.alreadyexists">Já existe esta conta de utilizador.
+Escolha um node conta diferente.</system:String>
+	<system:String x:Key="app.user.adduser">Adicionar Utilizador</system:String>
+	<system:String x:Key="app.user.email">E-Mail</system:String>
+	
+	
+	
+	<system:String x:Key="app.user.changepassword.current">Senha Atual</system:String>	
+	<system:String x:Key="app.user.changepassword.new">Nova Senha</system:String>	
+	<system:String x:Key="app.user.changepassword.confirmation">Confirmação de Senha</system:String>
+	<system:String x:Key="app.user.changepassword.apply">Aplicar</system:String>
+	<system:String x:Key="app.user.changepassword.applyok">Definida nova senha do utilizador.</system:String>
+	<system:String x:Key="app.user.changepassword.tooshort">A senha tem de ter pelo menos 5 caracteres.</system:String>	
+	<system:String x:Key="app.user.changepassword.mismatch">A nova senha não corresponde à confirmação.</system:String>
+	<system:String x:Key="app.user.changepassword.authfailed">Falha de autenticação</system:String>
+	
+	<system:String x:Key="app.tables.title">Tabelas de dados</system:String>	
+	<system:String x:Key="app.tables.description" xml:space="preserve">Nesta seçcão pode gerir as tabelas de dados principais da aplicação.
+Pode criar, alterar ou apagar registos das seguintes tabelas:</system:String>	
+	<system:String x:Key="app.tables.customers">Clientes</system:String>	
+	<system:String x:Key="app.tables.doctors">Doutores</system:String>	
+	<system:String x:Key="app.tables.appointmenttype">Tipos de Consulta</system:String>	
+	
+	<system:String x:Key="app.customer.save.ok">O cliente foi gravado com sucesso.</system:String>	
+	<system:String x:Key="app.customer.save.failed">Ocorreram erros ao gravar o cliente.</system:String>	
+	<system:String x:Key="app.customer.save.taxidalreadyexists">Não pode usar este NIF pois já existe para o cliente</system:String>	
+	<system:String x:Key="app.customer.delete.confirm" xml:space="preserve">Vai apagar este cliente. Esta ação é irreversível.
+	Deseja continuar?</system:String>
+	<system:String x:Key="app.customer.listcount">Clientes Listados:</system:String>	
+	<system:String x:Key="app.customer.delete.ok">O cliente foi apagado com sucesso.</system:String>	
+	<system:String x:Key="app.customer.delete.failed">Ocorreram erros ao apagar o cliente.</system:String>	
+	<system:String x:Key="app.customer.details.id">Id</system:String>
+	<system:String x:Key="app.customer.details.name">Nome</system:String>
+    <system:String x:Key="app.customer.details.age">Idade</system:String>
+    
+	<system:String x:Key="app.customer.details.taxidnumber">NIF</system:String>
+	<system:String x:Key="app.customer.details.birthday">Data Nascimento</system:String>	
+	<system:String x:Key="app.customer.details.mobilephone">Telemóvel</system:String>
+	<system:String x:Key="app.customer.details.telephone">Telefone</system:String>
+	<system:String x:Key="app.customer.details.fax">Fax</system:String>
+	<system:String x:Key="app.customer.details.email">E-Mail</system:String>
+	<system:String x:Key="app.customer.details.url">URL</system:String>
+	<system:String x:Key="app.customer.details.address">Morada</system:String>
+	<system:String x:Key="app.customer.details.postalcode">Código Postal</system:String>
+	<system:String x:Key="app.customer.details.city">Cidade</system:String>
+	<system:String x:Key="app.customer.details.country">País</system:String>
+	<system:String x:Key="app.customer.details.iban">IBAN</system:String>
+	<system:String x:Key="app.customer.details.contact">Contacto</system:String>
+	<system:String x:Key="app.customer.details.drivinglicense">Carta de Condução</system:String>
+	<system:String x:Key="app.customer.details.drivinglicensetype">Categoria da Carta de Condução</system:String>
+	<system:String x:Key="app.customer.details.drivinglicensedate">Data da Carta de Condução</system:String>
+	<system:String x:Key="app.customer.details.integrationref">Integração</system:String>
+	<system:String x:Key="app.customer.details.date">Data</system:String>
+	<system:String x:Key="app.customer.details.comments">Observações</system:String>	
+	<system:String x:Key="app.customer.details.nextappointment">Próxima Consulta</system:String>		
+	<system:String x:Key="app.customer.details.link">Detalhes</system:String>	
+
+	<system:String x:Key="app.doctor.save.ok">O doutor foi gravado com sucesso.</system:String>	
+	<system:String x:Key="app.doctor.save.failed">Ocorreram erros ao gravar o doutor.</system:String>	
+	<system:String x:Key="app.doctor.save.taxidalreadyexists">Não pode usar este NIF pois já existe para o doutor</system:String>	
+	<system:String x:Key="app.doctor.delete.confirm" xml:space="preserve">Vai apagar este doutor. Esta ação é irreversível.
+	Deseja continuar?</system:String>
+	<system:String x:Key="app.doctor.delete.ok">O doctor foi apagado com sucesso.</system:String>	
+	<system:String x:Key="app.doctor.delete.failed">Ocorreram erros ao apagar o doctor.</system:String>	
+	<system:String x:Key="app.doctor.details.id">Id</system:String>
+	<system:String x:Key="app.doctor.details.name">Nome</system:String>
+	<system:String x:Key="app.doctor.details.taxidnumber">NIF</system:String>
+	<system:String x:Key="app.doctor.details.mobilephone">Telemóvel</system:String>
+	<system:String x:Key="app.doctor.details.telephone">Telefone</system:String>
+	<system:String x:Key="app.doctor.details.fax">Fax</system:String>
+	<system:String x:Key="app.doctor.details.email">E-Mail</system:String>
+	<system:String x:Key="app.doctor.details.url">URL</system:String>
+	<system:String x:Key="app.doctor.details.address">Morada</system:String>
+	<system:String x:Key="app.doctor.details.postalcode">Código Postal</system:String>
+	<system:String x:Key="app.doctor.details.city">Cidade</system:String>
+	<system:String x:Key="app.doctor.details.country">País</system:String>
+	<system:String x:Key="app.doctor.details.iban">IBAN</system:String>
+	<system:String x:Key="app.doctor.details.contact">Contacto</system:String>
+	<system:String x:Key="app.doctor.details.comments">Observações</system:String>	
+	
+	<system:String x:Key="app.appointmenttype.save.ok">O tipo de consulta foi gravado com sucesso.</system:String>	
+	<system:String x:Key="app.appointmenttype.save.failed">Ocorreram erros ao gravar o tipo de consulta.</system:String>
+	<system:String x:Key="app.appointmenttype.delete.confirm" xml:space="preserve">Vai apagar este tipo de consulta. Esta ação é irreversível.
+	Deseja continuar?</system:String>
+	<system:String x:Key="app.appointmenttype.delete.ok">O tipo de consulta foi apagado com sucesso.</system:String>	
+	<system:String x:Key="app.appointmenttype.delete.failed">Ocorreram erros ao apagar o tipo de consulta.</system:String>	
+	<system:String x:Key="app.appointmenttype.details.id">Id</system:String>
+	<system:String x:Key="app.appointmenttype.details.name">Nome</system:String>
+	
+	<system:String x:Key="app.management.title">Secção de Gestão</system:String>	
+	<system:String x:Key="app.management.description" xml:space="preserve">Nesta seçcão pode gerir os movimentos efetuados.
+As opções disponíveis são:</system:String>	
+	<system:String x:Key="app.management.appointments">Consultas</system:String>	
+		
+	<system:String x:Key="app.appointment.list">Lista de Consultas</system:String>	
+	<system:String x:Key="app.appointment.details">Ficha de Consulta</system:String>	
+	<system:String x:Key="app.appointment.new">Nova consulta.</system:String>	
+	<system:String x:Key="app.appointment.delete.confirm">Vai apagar esta consulta. Esta ação é irreversível.
+	Deseja continuar?</system:String>
+	<system:String x:Key="app.appointment.save.ok">A consulta foi gravada com sucesso.</system:String>	
+	<system:String x:Key="app.appointment.save.failed">Ocorreram erros ao gravar a consulta.</system:String>
+	<system:String x:Key="app.appointment.delete.ok">A consulta foi apagada com sucesso.</system:String>	
+	<system:String x:Key="app.appointment.delete.failed">Ocorreram erros ao apagar a consulta.</system:String>
+	
+	
+	<system:String x:Key="app.appointment.list.filter">Filtrar</system:String>	
+	<system:String x:Key="app.appointment.list.id">Id</system:String>	
+	<system:String x:Key="app.appointment.list.number">Número</system:String>
+	<system:String x:Key="app.appointment.list.start">Início</system:String>	
+	<system:String x:Key="app.appointment.list.finish">Fim</system:String>	
+	<system:String x:Key="app.appointment.list.customer">Cliente</system:String>
+	<system:String x:Key="app.appointment.list.doctor">Doutor</system:String>
+	<system:String x:Key="app.appointment.list.appointmenttype">Tipo de Consulta</system:String>
+	<system:String x:Key="app.appointment.list.total">Total</system:String>
+	<system:String x:Key="app.appointment.list.resizecolumns">Redimensionar Colunas</system:String>
+	
+	<system:String x:Key="app.appointment.id">Id</system:String>	
+	<system:String x:Key="app.appointment.date">Data</system:String>	
+	<system:String x:Key="app.appointment.type">Tipo de Consulta</system:String>	
+	<system:String x:Key="app.appointment.doctor">Doutor</system:String>	
+	<system:String x:Key="app.appointment.customer">Cliente</system:String>	
+	<system:String x:Key="app.appointment.user">Utilizador</system:String>	
+	<system:String x:Key="app.appointment.number">Número</system:String>
+	<system:String x:Key="app.appointment.description">Descrição</system:String>	
+	<system:String x:Key="app.appointment.comments">Observações</system:String>		
+	<system:String x:Key="app.appointment.appointmenttype">Tipo de Consulta</system:String>		
+	<system:String x:Key="app.appointment.paymenttype">Forma de Pagamento</system:String>		
+	<system:String x:Key="app.appointment.coin">Moeda</system:String>		
+	<system:String x:Key="app.appointment.exchange">Câmbio</system:String>
+	<system:String x:Key="app.appointment.totalproducts">Valor</system:String>
+	<system:String x:Key="app.appointment.clientdiscount">Desconto de cliente</system:String>
+	<system:String x:Key="app.appointment.financediscount">Desconto Financeiro</system:String>
+	<system:String x:Key="app.appointment.vat">IVA</system:String>
+	<system:String x:Key="app.appointment.value">Valor</system:String>
+	<system:String x:Key="app.appointment.dicountvalue">Descontos</system:String>
+	<system:String x:Key="app.appointment.grossvalue">Ilíquido</system:String>
+	<system:String x:Key="app.appointment.total">Total</system:String>
+	<system:String x:Key="app.appointment.report">Relatório</system:String>
+	
+	
+</ResourceDictionary>

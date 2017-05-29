@@ -1,0 +1,33 @@
+﻿<Window x:Class="NBsoft.Appointment.WPF.Windows.SplashWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NBsoft.Appointment.WPF.Windows"
+        mc:Ignorable="d"
+         AllowsTransparency="True"
+        Background="Transparent"
+        WindowStyle="None"
+        Title="SplashWindow" Height="120" Width="280" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Border Background="Black" Margin="1"  Opacity="0.6" ></Border>
+        <Border Margin="1" BorderThickness="1" >
+            <Border.BorderBrush>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.HighlightColorKey}}"/>
+            </Border.BorderBrush>
+        </Border>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+            <Path Width="33.25" Height="38.0001" Canvas.Left="20.5833" Canvas.Top="18.9999" Stretch="Fill" Data="{DynamicResource appbar_journal}" HorizontalAlignment="Center" Fill="White" Margin="10">
+                <Path.Effect>
+                    <DropShadowEffect BlurRadius="7" ShadowDepth="5" Color="{DynamicResource {x:Static SystemColors.HighlightColorKey}}" />
+                </Path.Effect>
+            </Path>
+            <TextBlock Grid.Row="1" Text="NBsoft Appointment" FontFamily="Trebuchet MS" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Margin="0,0,0,10">
+                <TextBlock.Effect>
+                    <DropShadowEffect BlurRadius="7" ShadowDepth="5" Color="{DynamicResource {x:Static SystemColors.HighlightColorKey}}" />
+                </TextBlock.Effect>
+            </TextBlock>
+        </StackPanel>
+        
+    </Grid>
+</Window>

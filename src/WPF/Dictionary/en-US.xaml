@@ -1,0 +1,87 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+	<system:String x:Key="app.error">Errors ocurred</system:String>							
+	<system:String x:Key="app.nochanges">No changes exist.</system:String>	
+	<system:String x:Key="app.database.updatefailed">Errors ocurred updating the database.</system:String>	
+	
+    <system:String x:Key="app.logonwindow.cancel">Cancel</system:String>
+	<system:String x:Key="app.logonwindow.ok">Ok</system:String>
+	<system:String x:Key="app.logonwindow.user">User</system:String>
+	<system:String x:Key="app.logonwindow.password">Password</system:String>	
+	<system:String x:Key="app.logonwindow.invaliduser">Invalid User</system:String>	
+	<system:String x:Key="app.logonwindow.authfailed">Authentication failed</system:String>	
+	
+	<system:String x:Key="app.mainwindow.settings">Settings</system:String>
+	<system:String x:Key="app.mainwindow.help">Help</system:String>
+	<system:String x:Key="app.mainwindow.start">Start</system:String>
+	<system:String x:Key="app.mainwindow.welcome">Welcome</system:String>
+	<system:String x:Key="app.mainwindow.dashboard">Dashboard</system:String>
+	<system:String x:Key="app.mainwindow.tables">Tables</system:String>
+	<system:String x:Key="app.mainwindow.info">Information</system:String>
+	<system:String x:Key="app.mainwindow.customers">Customers</system:String>
+	<system:String x:Key="app.mainwindow.doctors">Doctors</system:String>
+	<system:String x:Key="app.mainwindow.appointmenttype">Appointment Types</system:String>
+	<system:String x:Key="app.mainwindow.management">Management</system:String>
+	<system:String x:Key="app.mainwindow.appointments">Appointments</system:String>
+	
+	<system:String x:Key="app.taskbar.new">New</system:String>	
+	
+	<system:String x:Key="app.welcomepage.welcometext" xml:space="preserve">Welcome to [b]NBsoft.Appointment[/b].
+For a system overview see the {0}</system:String>
+	<system:String x:Key="app.welcomepage.dashboard">Dashboard</system:String>
+	
+	<system:String x:Key="app.dashboard.header">Dashboard</system:String>
+	
+	<system:String x:Key="app.dashboard.start.appointments">Appointment Statistics</system:String>
+	
+	<system:String x:Key="app.settings.appearance">Appearance</system:String>	
+	<system:String x:Key="app.settings.language">Language</system:String>	
+	
+	<system:String x:Key="app.settings.appearance.title">Appearance</system:String>	
+	<system:String x:Key="app.settings.appearance.theme">Theme</system:String>	
+	<system:String x:Key="app.settings.appearance.fontsize">Font Size</system:String>	
+		
+	<system:String x:Key="app.settings.language.title">Application Language</system:String>	
+	<system:String x:Key="app.settings.language.dictionary">Dictionary</system:String>	
+	
+	<system:String x:Key="app.user.title">User Data</system:String>	
+	<system:String x:Key="app.user.logon">Account</system:String>	
+	<system:String x:Key="app.user.name">Name</system:String>	
+	<system:String x:Key="app.user.lastname">Last Name</system:String>	
+	<system:String x:Key="app.user.address">Address</system:String>	
+	<system:String x:Key="app.user.postalcode">Postal Code</system:String>	
+	<system:String x:Key="app.user.city">City</system:String>	
+	<system:String x:Key="app.user.country">Country</system:String>	
+	<system:String x:Key="app.user.pin">PIN</system:String>	
+	<system:String x:Key="app.user.changepassword">Change Password</system:String>
+	<system:String x:Key="app.user.save">Save</system:String>
+	<system:String x:Key="app.user.saveok">User saved successfully.</system:String>
+	<system:String x:Key="app.user.pin.mustbenumber">PIN must be a number.</system:String>
+	<system:String x:Key="app.user.pin.tooshort">PIN must have at least 3 digits.</system:String>
+	
+	<system:String x:Key="app.user.changepassword.current">Current Password</system:String>	
+	<system:String x:Key="app.user.changepassword.new">New Password</system:String>	
+	<system:String x:Key="app.user.changepassword.confirmation">Password Confirmation</system:String>	
+	<system:String x:Key="app.user.changepassword.apply">Apply</system:String>
+	<system:String x:Key="app.user.changepassword.applyok">New user password set.</system:String>
+	<system:String x:Key="app.user.changepassword.tooshort">The Password must have at least 5 characters</system:String>	
+	<system:String x:Key="app.user.changepassword.mismatch">The new password doesn't match the confirmation.</system:String>
+	<system:String x:Key="app.user.changepassword.authfailed">Authentication failed.</system:String>
+	
+	<system:String x:Key="app.tables.title">Data Tables</system:String>	
+	<system:String x:Key="app.tables.description" xml:space="preserve">On this section you can manage the application's main database tables.
+You can create, edit or delete records on the following tables:</system:String>	
+	<system:String x:Key="app.tables.customers">Customers</system:String>	
+	<system:String x:Key="app.tables.doctors">Doctors</system:String>	
+	<system:String x:Key="app.tables.appointmenttype">Appointment Types</system:String>	
+	
+	<system:String x:Key="app.customer.save.ok">O cliente foi gravado com sucesso.</system:String>	
+	<system:String x:Key="app.customer.save.failed">Ocorreram erros ao gravar o cliente.</system:String>	
+	<system:String x:Key="app.customer.save.taxidalreadyexists">This Tax Id Number cannot be used because it is set to customer</system:String>	
+	<system:String x:Key="app.customer.delete.confirm">ddd.</system:String>
+	<system:String x:Key="app.customer.delete.ok">O cliente foi apagado com sucesso.</system:String>	
+	<system:String x:Key="app.customer.delete.failed">Ocorreram erros ao apagar o cliente.</system:String>
+	
+</ResourceDictionary>

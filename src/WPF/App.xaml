@@ -1,0 +1,22 @@
+﻿<Application x:Class="NBsoft.Appointment.WPF.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:NBsoft.Appointment.WPF"
+             Startup="Application_Startup"
+             StartupUri="Windows\SplashWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- WPF 4.0 workaround -->
+            <Style TargetType="{x:Type Rectangle}" />
+            <!-- end of workaround -->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/FirstFloor.ModernUI;component/Assets/ModernUI.xaml" />
+                <ResourceDictionary Source="/FirstFloor.ModernUI;component/Assets/ModernUI.Dark.xaml" />
+                <ResourceDictionary x:Name="Theme" Source="/NBsoft.Appointment.WPF;component/Theme/WpfTheme.xaml"/>
+                <ResourceDictionary x:Name="IconResource" Source="/NBsoft.Appointment.WPF;component/Icons/IconLibrary.xaml"/>
+                <ResourceDictionary x:Name="DictionaryResource" Source="/NBsoft.Appointment.WPF;component/Dictionary/pt-PT.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>

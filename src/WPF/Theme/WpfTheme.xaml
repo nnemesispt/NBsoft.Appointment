@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:NBsoft.Appointment.WPF.Theme">
+
+    <SolidColorBrush x:Key="CBackColor">#1E1E1E</SolidColorBrush>
+    <SolidColorBrush  x:Key="UserAccent">DarkGray</SolidColorBrush>
+    <Style x:Key="GreenTextButton" TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Foreground" Value="Green" />
+    </Style>
+    <Style TargetType="{x:Type Window}">
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Background" Value="{StaticResource CBackColor}" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+        <Setter Property="WindowStyle" Value="None" />
+    </Style>
+</ResourceDictionary>

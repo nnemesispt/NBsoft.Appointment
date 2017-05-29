@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="NBsoft.Appointment.WPF.Charts.ChartLabel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NBsoft.Appointment.WPF.Charts"
+             Name="chartLabel"
+             DataContext="{Binding ElementName=chartLabel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="30" d:DesignWidth="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="100*" />
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.Column="0" Name="Rect1" MinWidth="20" Margin="2" Fill="{Binding LabelColor}"  ></Rectangle>
+        <Label Grid.Column="1" Name="LblText" Content="{Binding LabelText}" Margin="5,0,0,0" ></Label>
+    </Grid>
+</UserControl>

@@ -1,0 +1,214 @@
+﻿<UserControl x:Class="NBsoft.Appointment.WPF.Content.AppointmentList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NBsoft.Appointment.WPF.Content"
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:controls="clr-namespace:NBsoft.Appointment.WPF.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800">
+    <Grid>
+        <Grid.Resources>            
+            <Style TargetType="TextBlock">
+                <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="VerticalAlignment" Value="Top" />
+                <!--<Setter Property="Foreground" Value="White" />-->
+                <Setter Property="Margin" Value="3,0,0,0" />
+            </Style>            
+        </Grid.Resources>
+        <Grid Name="MainGrid" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="70*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="100*" />
+            </Grid.RowDefinitions>
+            <Border Grid.Column="0" Grid.ColumnSpan="2">
+                <StackPanel Orientation="Horizontal">
+                    <controls:Taskbar x:Name="Tskbar" IsAddVisible="True" IsDeleteVisible="False" IsSearchVisible="False" IsPrintVisible="True" IsEditVisible="True" IsSaveVisible="False"
+                                      Add="Tskbar_Add"
+                                      Edit="Taskbar_Edit"                                      
+                                      Print="Taskbar_Print"
+                                      />
+                    <!--<mui:ModernButton  Name="BtnShipping" Content="{DynamicResource D_Shipping}" IconData="{DynamicResource appbar_truck_depart}" Click="BtnShipping_Click" />
+                    <mui:ModernButton  Name="BtnReturns" Content="{DynamicResource D_Return}" IconData="{DynamicResource appbar_truck_arrive}" Click="BtnReturns_Click" />-->
+                </StackPanel>
+            </Border>
+            <Border Grid.Column="0" Grid.Row="1" Name="OptionsBorder" Margin="0,0,3,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="100*"/>                        
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal">
+                        <mui:ModernButton Name="BtnFilter" Content="{DynamicResource app.appointment.list.filter}" EllipseDiameter="32" IconHeight="22" IconWidth="22" IconData="{DynamicResource appbar_check}" Margin="0,0,10,0" Click="BtnFilter_Click" />
+                    </StackPanel>
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" >
+                        <Grid>
+                            <Grid.Resources>
+                                <Style TargetType="StackPanel">
+                                    <Setter Property="Orientation" Value="Horizontal" />
+                                    <Setter Property="Margin" Value="0,0,0,4" />
+                                </Style>
+                                <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+                                    <Setter Property="MinWidth" Value="100" />
+                                    <Setter Property="VerticalAlignment" Value="Center" />
+                                </Style>
+                                <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+                                    <Setter Property="MinWidth" Value="110" />
+                                </Style>
+                                <Style TargetType="ComboBox" BasedOn="{StaticResource {x:Type ComboBox}}">
+                                    <Setter Property="MinWidth" Value="110" />
+                                </Style>
+                                <Style TargetType="DatePicker" BasedOn="{StaticResource {x:Type DatePicker}}">
+                                    <Setter Property="Width" Value="110" />
+                                </Style>
+
+                            </Grid.Resources>
+                            <StackPanel x:Name="Form1" Orientation="Vertical" >                                
+                                <StackPanel>
+                                    <Label Content="{DynamicResource app.appointment.list.start}" Target="{Binding ElementName=DtpStart}"/>
+                                    <DatePicker x:Name="DtpStart" Text="{Binding StartDate, Mode=TwoWay }"  />
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="{DynamicResource app.appointment.list.finish}" Target="{Binding ElementName=DtpEnd}"/>
+                                    <DatePicker x:Name="DtpEnd" Text="{Binding EndDate, Mode=TwoWay }" />
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="{DynamicResource app.appointment.list.id}" Target="{Binding ElementName=TxtAppointmentId}"/>
+                                    <TextBox x:Name="TxtAppointmentId" Text="{Binding AppointmentId, Mode=TwoWay }"  />
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="{DynamicResource app.appointment.list.number}" Target="{Binding ElementName=TxtAppointmentNumber}"/>
+                                    <TextBox x:Name="TxtAppointmentNumber" Text="{Binding AppointmentNumber, Mode=TwoWay }"  />
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="{DynamicResource app.appointment.list.customer}" Target="{Binding ElementName=CmbCustomer}"/>
+                                    <ComboBox Name="CmbCustomer"   
+                                          DisplayMemberPath="Name"                                          
+                                          ItemsSource="{Binding CustomerList}"
+                                          SelectedValue="{Binding SelectedCustomer, Mode=TwoWay }">
+                                    </ComboBox>
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="{DynamicResource app.appointment.list.doctor}" Target="{Binding ElementName=CmbDoctor}"/>
+                                    <ComboBox Name="CmbDoctor"   
+                                                DisplayMemberPath="Name"                                                
+                                                ItemsSource="{Binding DoctorList}"
+                                                SelectedValue="{Binding SelectedDoctor, Mode=TwoWay }">
+                                    </ComboBox>
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="{DynamicResource app.appointment.list.appointmenttype}" Target="{Binding ElementName=CmbAppointmentType}"/>
+                                    <ComboBox Name="CmbAppointmentType"   
+                                                DisplayMemberPath="Name"                                                
+                                                ItemsSource="{Binding AppointmentTypeList}"
+                                                SelectedValue="{Binding SelectedAppointmentType, Mode=TwoWay }">
+                                    </ComboBox>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+            <Border Grid.Column="1" Grid.Row="1" Name="ListBorder" Margin="4,0,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <DataGrid Name="DG1" ItemsSource="{Binding AppointmentList}" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False"
+                              SelectionChanged="DG1_SelectionChanged" 
+                              PreviewMouseDown="DG1_PreviewMouseDown"
+                              PreviewMouseUp="DG1_PreviewMouseUp"
+                              >                      
+                        <DataGrid.Columns>                            
+                            <mui:DataGridTextColumn Binding="{Binding Id , Mode=OneWay}" IsReadOnly="True" >
+                                <DataGridTextColumn.Header>
+                                    <TextBlock Text="{DynamicResource app.appointment.id}"></TextBlock>
+                                </DataGridTextColumn.Header>
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </mui:DataGridTextColumn>
+                            <mui:DataGridTextColumn Binding="{Binding AppointmentDate , Mode=OneWay, StringFormat=\{0:yyyy-MM-dd\}}" IsReadOnly="True" >
+                                <DataGridTextColumn.Header>
+                                    <TextBlock Text="{DynamicResource app.appointment.date}"></TextBlock>
+                                </DataGridTextColumn.Header>
+                            </mui:DataGridTextColumn>
+                            <mui:DataGridTextColumn Binding="{Binding AppointmentType , Mode=OneWay}" IsReadOnly="True" Width="280" >
+                                <DataGridTextColumn.Header>
+                                    <TextBlock Text="{DynamicResource app.appointment.type}"></TextBlock>
+                                </DataGridTextColumn.Header>
+                            </mui:DataGridTextColumn>
+                            <mui:DataGridTextColumn Binding="{Binding Number , Mode=OneWay}" IsReadOnly="True" >
+                                <DataGridTextColumn.Header>
+                                    <TextBlock Text="{DynamicResource app.appointment.number}"></TextBlock>
+                                </DataGridTextColumn.Header>
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </mui:DataGridTextColumn>
+                            <mui:DataGridTextColumn Binding="{Binding DoctorName , Mode=OneWay}" IsReadOnly="True" Width="120" >
+                                <DataGridTextColumn.Header>
+                                    <TextBlock Text="{DynamicResource app.appointment.doctor}"></TextBlock>
+                                </DataGridTextColumn.Header>                                
+                            </mui:DataGridTextColumn>
+                            <mui:DataGridTextColumn Binding="{Binding CustomerName , Mode=OneWay}" IsReadOnly="True" Width="120" >
+                                <DataGridTextColumn.Header>
+                                    <TextBlock Text="{DynamicResource app.appointment.customer}"></TextBlock>
+                                </DataGridTextColumn.Header>
+                            </mui:DataGridTextColumn>
+                            <mui:DataGridTextColumn Binding="{Binding UserName , Mode=OneWay}" IsReadOnly="True" Width="120" >
+                                <DataGridTextColumn.Header>
+                                    <TextBlock Text="{DynamicResource app.appointment.user}"></TextBlock>
+                                </DataGridTextColumn.Header>
+                            </mui:DataGridTextColumn>
+                            <mui:DataGridTextColumn Binding="{Binding Description, Mode=OneWay}" IsReadOnly="True" Width="140" >
+                                <DataGridTextColumn.Header>
+                                    <TextBlock Text="{DynamicResource app.appointment.description}"></TextBlock>
+                                </DataGridTextColumn.Header>
+                            </mui:DataGridTextColumn>                          
+                            <!--<mui:DataGridComboBoxColumn x:Name="JStatus"
+                                                        SelectedValueBinding ="{Binding CurrentState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"                                                             
+                                                        DisplayMemberPath="Name" 
+                                                        SelectedValuePath="Id" >
+                                <DataGridComboBoxColumn.Header>
+                                    <TextBlock Text="{DynamicResource D_Status}"></TextBlock>
+                                </DataGridComboBoxColumn.Header>
+                            </mui:DataGridComboBoxColumn>
+                            <mui:DataGridCheckBoxColumn Binding="{Binding Option1}" IsReadOnly="True" >
+                                <DataGridCheckBoxColumn.Header>
+                                    <TextBlock Text="{DynamicResource D_Offer}"></TextBlock>
+                                </DataGridCheckBoxColumn.Header>
+                            </mui:DataGridCheckBoxColumn>-->
+                            
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <mui:ModernButton Name="BtnResetCols" IconHeight="8" IconWidth="8" EllipseDiameter="12"  IconData="{DynamicResource appbar_arrowdown}" ToolTip="{DynamicResource app.appointment.list.resizecolumns}" Click="BtnResetCols_Click" ></mui:ModernButton>
+                    </StackPanel>
+                    <Border Grid.Row="2" Height="40">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Label Content="{DynamicResource app.appointment.list.total}" VerticalAlignment="Center" />
+                            <TextBox Name="TxtTotalItems" Text="{Binding ListCount, Mode=OneWay}" MinWidth="60" Margin="5,0,0,0" />                            
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </Border>
+            <GridSplitter Width="3" Grid.Column="1" Grid.Row="1" Margin="0,1" Opacity="0.3" Background="{DynamicResource UserAccent}" ResizeDirection="Columns" HorizontalAlignment="Left"></GridSplitter>
+        </Grid>
+        <Grid Name="WaitGrid"  Visibility="Collapsed" Margin="{DynamicResource RootMargin}">
+            <Border Background="white" Opacity="0.1"></Border>
+            <mui:ModernProgressRing Name="WaitAnimation" IsActive="True" Width="80" Height="80" Style="{StaticResource ThreeBounceProgressRingStyle}" />
+        </Grid>
+    </Grid>
+</UserControl>

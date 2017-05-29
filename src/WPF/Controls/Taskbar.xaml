@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="NBsoft.Appointment.WPF.Controls.Taskbar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NBsoft.Appointment.WPF.Controls"
+             mc:Ignorable="d" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             d:DesignHeight="26" d:DesignWidth="400">
+    <StackPanel Orientation="Horizontal">
+        <StackPanel.Resources>
+            <Style TargetType="mui:ModernButton">
+                <Setter Property="Margin" Value="0,0,2,0" />
+                <Setter Property="BorderThickness" Value="2" />
+                <Setter Property="EllipseStrokeThickness" Value="1" />
+                <Setter Property="EllipseDiameter" Value="24" />
+                <Setter Property="IconWidth" Value="12" />
+                <Setter Property="IconHeight" Value="12" />
+
+            </Style>
+        </StackPanel.Resources>
+        <mui:ModernButton Name="BtnAdd"  ToolTip="{DynamicResource app.taskbar.new}" IconData="{DynamicResource appbar_new}" Click="BtnAdd_Click"></mui:ModernButton>
+        <mui:ModernButton Name="BtnEdit"  ToolTip="{DynamicResource app.taskbar.edit}" IconData="{DynamicResource appbar_edit}" Click="BtnEdit_Click" ></mui:ModernButton>
+        <mui:ModernButton Name="BtnSave"  ToolTip="{DynamicResource app.taskbar.save}" IconData="{DynamicResource appbar_save}" Click="BtnSave_Click" ></mui:ModernButton>
+        <mui:ModernButton Name="BtnDelete"  ToolTip="{DynamicResource app.taskbar.delete}" IconData="{DynamicResource appbar_delete}" Click="BtnDelete_Click" ></mui:ModernButton>
+        <Line x:Name="PrinterLine" Margin="2,0" StrokeThickness="2" Y1="30"/>
+        <mui:ModernButton Name="BtnPrint"  ToolTip="{DynamicResource app.taskbar.print}" IconData="{DynamicResource appbar_printer}" Click="BtnPrint_Click" ></mui:ModernButton>
+        <Line x:Name="SearchLine"  Margin="2,0" StrokeThickness="2" Y1="30"/>
+        <TextBox x:Name="TxtSearch" Width="200" Margin="2,0,2,0" KeyUp="TxtSearch_KeyUp">
+
+        </TextBox>
+        <mui:ModernButton Name="BtnSearch"  ToolTip="{DynamicResource app.taskbar.search}" IconData="{DynamicResource appbar_check}" Click="BtnSearch_Click"></mui:ModernButton>
+        <Line x:Name="EndLine"  Margin="2,0" StrokeThickness="2" Y1="30"/>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="NBsoft.Appointment.WPF.Pages.CustomersPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NBsoft.Appointment.WPF.Pages"
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:controls="clr-namespace:NBsoft.Appointment.WPF.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="600">
+    <Grid Name="Root">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="100*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid Name="TaskbarGrid" Grid.Row="0" Height="26">
+                <StackPanel Orientation="Horizontal">
+                    <controls:Taskbar Height="26" Add="Taskbar_Add" Delete="Taskbar_Delete" Search="Taskbar_Search" Save="Taskbar_Save" ></controls:Taskbar>
+                    <!--<Line X1="0" X2="0" Y1="0" Y2="26" Stroke="{DynamicResource UserAccent}"  StrokeThickness="0.6" Margin="5,0" ></Line>-->
+                    <!--<mui:ModernButton Name="BtnSyncIntegration" Content="{DynamicResource D_SyncCustomers}"  EllipseDiameter="24" IconData="{DynamicResource appbar_refresh}" IconHeight="16" IconWidth="16"  Click="BtnSyncIntegration_Click" ></mui:ModernButton>-->
+                </StackPanel>
+            </Grid>
+
+            <Grid Name="MainGrid" Grid.Row="1" Margin="5,10,5,0" >
+                <mui:ModernTab x:Name="DetailTab" Layout="List" ListWidth="Auto"  >
+                    <mui:ModernTab.Links >
+                        <mui:LinkCollection x:Name="DetailLinks" ></mui:LinkCollection>
+                    </mui:ModernTab.Links>
+                </mui:ModernTab>
+            </Grid>
+
+            <Grid Name="StatusBarGrid" Grid.Row="2" Margin="{StaticResource StatusMargin}" >
+                <Border Background="DarkGray" Opacity="0.1" CornerRadius="3"></Border>
+                <TextBlock Name="TxtStatus" Text=":" VerticalAlignment="Center" Height="22"  />
+            </Grid>
+        </Grid>
+        <Grid Name="WaitGrid" Margin="{StaticResource RootMargin}" Visibility="Hidden">
+            <Border Background="white" Opacity="0.4" CornerRadius="5"></Border>
+            <mui:ModernProgressRing Name="WaitAnimation" IsActive="False" Width="80" Height="80" Style="{StaticResource ThreeBounceProgressRingStyle}" />
+        </Grid>
+    </Grid>
+</UserControl>

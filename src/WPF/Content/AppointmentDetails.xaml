@@ -1,0 +1,178 @@
+﻿<UserControl x:Class="NBsoft.Appointment.WPF.Content.AppointmentDetails"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NBsoft.Appointment.WPF.Content"
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:controls="clr-namespace:NBsoft.Appointment.WPF.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1100">
+    <Grid>
+        <Grid Name="DetailsGrid">
+            <Grid.Resources>
+                <Style TargetType="StackPanel">
+                    <Setter Property="Orientation" Value="Horizontal" />
+                    <Setter Property="Margin" Value="0,0,0,4" />
+                </Style>
+                <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+                    <Setter Property="MinWidth" Value="120" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                </Style>
+                <Style TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
+                    <Setter Property="Padding" Value="0" />
+                </Style>
+                <Style TargetType="RadioButton" BasedOn="{StaticResource {x:Type RadioButton}}">
+                    <Setter Property="Padding" Value="0,3" />
+                    <Setter Property="Height" Value="22" />
+                </Style>
+                <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+                    <Setter Property="MinWidth" Value="240" />
+                </Style>
+                <Style TargetType="ComboBox" BasedOn="{StaticResource {x:Type ComboBox}}">
+                    <Setter Property="MinWidth" Value="120" />
+                </Style>
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="100*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <controls:Taskbar Margin="0,0,0,5" IsSearchVisible="False" Add="Taskbar_Add" Save="Taskbar_Save" Delete="Taskbar_Delete" />
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <Grid>                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="100*" />                        
+                    </Grid.ColumnDefinitions>
+                    <StackPanel x:Name="Form1" Orientation="Vertical" Grid.Column="0" Margin="5,0">
+                        <StackPanel>
+                            <Label Content="{DynamicResource app.appointment.id}" Target="{Binding ElementName=TxtCustomerId}"/>
+                            <TextBox x:Name="TxtId" Text="{Binding Appointment.Id, Mode=TwoWay}" IsEnabled="False" MinWidth="20" Margin="5,0,2,0" />
+                            <DatePickerTextBox  Text="{Binding Appointment.CreationDate, Mode=OneWay}" VerticalAlignment="Center" IsEnabled="False" />
+                        </StackPanel>
+                        <StackPanel>
+                            <Label Content="{DynamicResource app.appointment.customer}" Target="{Binding ElementName=TxtCustomerId}"/>
+                            <TextBox x:Name="TxtCustomerId" Text="{Binding Appointment.Id_Customer, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"  MinWidth="20" Margin="5,0,2,0" />
+                            <TextBox x:Name="TxtCustomerName" Text="{Binding Appointment.CustomerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxWidth="300" TextWrapping="WrapWithOverflow" KeyUp="TxtCustomerName_KeyUp" LostFocus="TxtCustomerName_LostFocus" />
+                            <mui:ModernButton Name="BtnSearchCustomer"  IconData="{DynamicResource appbar_magnify}" Click="BtnSearchCustomer_Click" /> 
+                        </StackPanel>
+                        <StackPanel>
+                            <Label Content="{DynamicResource app.appointment.doctor}" Target="{Binding ElementName=TxtDoctorId}"/>
+                            <TextBox x:Name="TxtDoctorId" Text="{Binding Appointment.Id_Doctor, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"  MinWidth="20" Margin="5,0,2,0" />
+                            <TextBox x:Name="TxtDoctorName" Text="{Binding Appointment.DoctorName, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" MaxWidth="300" TextWrapping="WrapWithOverflow" KeyUp="TxtDoctorName_KeyUp" LostFocus="TxtDoctorName_LostFocus" />
+                            <mui:ModernButton Name="BtnSearchDoctor"  IconData="{DynamicResource appbar_magnify}" Click="BtnSearchDoctor_Click" />
+                        </StackPanel>                        
+                    </StackPanel>
+                    <StackPanel x:Name="Form2" Orientation="Vertical" Grid.Column="1" Margin="10,0,5,0">
+                        <StackPanel>
+                            <Label Content="{DynamicResource app.appointment.appointmenttype}" Target="{Binding ElementName=TxtAppointmentTypeId}"/>
+                            <TextBox x:Name="TxtAppointmentTypeId" Text="{Binding Appointment.Id_AppointmentType, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"  MinWidth="20" Margin="5,0,2,0" />
+                            <TextBox x:Name="TxtAppointmentTypeName" Text="{Binding Appointment.AppointmentType, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" MinWidth="200" TextWrapping="WrapWithOverflow" KeyUp="TxtAppointmentTypeName_KeyUp" LostFocus="TxtAppointmentTypeName_LostFocus" />
+                            <mui:ModernButton Name="BtnSearchAppointmentType"  IconData="{DynamicResource appbar_magnify}" Click="BtnSearchAppointmentType_Click" />
+                        </StackPanel>
+                        <StackPanel>
+                            <Label Content="{DynamicResource app.appointment.date}" Target="{Binding ElementName=TxtAppointmentTypeId}"/>
+                            <DatePicker x:Name="DtpAppointmentDate" Text="{Binding Appointment.AppointmentDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="20" Margin="5,0,2,0" />
+                        </StackPanel>
+                        <StackPanel>
+                            <Label Content="{DynamicResource app.appointment.number}" Target="{Binding ElementName=TxtCustomerId}" />
+                            <TextBox x:Name="TxtNumber" Text="{Binding Appointment.Number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="80" Margin="5,0,2,0" />
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel x:Name="Form3" Orientation="Vertical" Grid.Column="2" Margin="10,0,5,0">
+                        <StackPanel >
+                            <Label Content="{DynamicResource app.appointment.paymenttype}" Target="{Binding ElementName=CmbPaymentType}"/>                            
+                            <ComboBox x:Name="CmbPaymentType" MinWidth="100"  Margin="5,0,2,0" 
+                                      ItemsSource="{Binding PaymentTypeList}"
+                                      DisplayMemberPath="Name"
+                                      SelectedValuePath="Reference"
+                                      SelectedValue="{Binding Appointment.PaymentType, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" />
+                        </StackPanel>
+                        <StackPanel >
+                            <Label Content="{DynamicResource app.appointment.coin}" Target="{Binding ElementName=CmbCoin}"/>                            
+                            <ComboBox x:Name="CmbCoin" MinWidth="100"  Margin="5,0,2,0" 
+                                      ItemsSource="{Binding CoinList}"
+                                      DisplayMemberPath="Name"                                      
+                                      SelectedValue="{Binding SelectedCoin, Mode=TwoWay ,UpdateSourceTrigger=PropertyChanged}" />
+                            <Label Content="{Binding Appointment.Coin}" MinWidth="10" />
+                        </StackPanel>
+                        <StackPanel >
+                            <Label Content="{DynamicResource app.appointment.exchange}" Target="{Binding ElementName=TxtExchange}"/>
+                            <TextBox x:Name="TxtExchange" Text="{Binding Appointment.Exchange, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" MinWidth="100"  Margin="5,0,2,0" IsReadOnly="True"  />
+                        </StackPanel>
+                    </StackPanel>
+                    <GridSplitter Width="3" Grid.Column="1" Grid.Row="0" Margin="0,1" Opacity="0.8" Background="{DynamicResource UserAccent}" ResizeDirection="Columns" HorizontalAlignment="Left"></GridSplitter>
+                </Grid>
+            </ScrollViewer>
+            <Border Grid.Row="2" Margin="10" BorderBrush="{DynamicResource UserAccent}" BorderThickness="1">
+                <Grid Margin="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="100*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Orientation="Vertical" Margin="10,0">
+                        <StackPanel >
+                            <Label Content="{DynamicResource app.appointment.description}" Target="{Binding ElementName=TxtDescription}"/>
+                            <TextBox x:Name="TxtDescription" Text="{Binding Appointment.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="5,0,2,0" AcceptsReturn="True" />
+                        </StackPanel>
+                        <StackPanel >
+                            <Label Content="{DynamicResource app.appointment.comments}" Target="{Binding ElementName=TxtComments}" VerticalAlignment="Top" />
+                            <TextBox x:Name="TxtComments" Text="{Binding Appointment.Comments, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5,0,2,0" AcceptsReturn="True" MaxLines="30" MinHeight="120" MinWidth="350" />
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Orientation="Vertical" Margin="10,0" >
+                        
+                        <StackPanel >
+                            <Label Content="{DynamicResource app.appointment.totalproducts}" Target="{Binding ElementName=TxtTotalProducts}"/>
+                            <TextBox x:Name="TxtTotalProducts" Text="{Binding Appointment.TotalProducts, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:n2}}" MinWidth="100"  Margin="5,0,2,0" TextAlignment="Right"  />
+                        </StackPanel>                        
+                        <StackPanel >
+                            <Label Content="{DynamicResource app.appointment.financediscount}" Target="{Binding ElementName=TxtFinanceDiscount}"/>
+                            <TextBox x:Name="TxtFinanceDiscount" Text="{Binding Appointment.FinanceDiscount, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:n2}}" MinWidth="100"  Margin="5,0,2,0" TextAlignment="Right" />
+                        </StackPanel>
+                        <StackPanel >
+                            <Label Content="{DynamicResource app.appointment.vat}" Target="{Binding ElementName=TxtVATValue}"/>
+                            <TextBox x:Name="TxtVATValue" Text="{Binding Appointment.VATValue, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:n2}}" MinWidth="100"  Margin="5,0,2,0" TextAlignment="Right" />
+                        </StackPanel>                        
+                    </StackPanel>
+                </Grid>                
+            </Border>
+            <Border Grid.Row="3" Margin="2">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Margin="10,2">
+                    <StackPanel >
+                        <Label Content="{DynamicResource app.appointment.value}" Target="{Binding ElementName=TxtProductsValue}"/>
+                        <TextBox x:Name="TxtProductsValue" Text="{Binding Appointment.ProductsValue, Mode=OneWay, StringFormat={}{0:n2}}" MinWidth="100"  Margin="5,0,2,0" IsReadOnly="True"  TextAlignment="Right" />
+                    </StackPanel>
+                    <StackPanel >
+                        <Label Content="{DynamicResource app.appointment.dicountvalue}" Target="{Binding ElementName=TxtDiscountValue}"/>
+                        <TextBox x:Name="TxtDiscountValue" Text="{Binding Appointment.DiscountValue, Mode=OneWay, StringFormat={}{0:n2}}" MinWidth="100"  Margin="5,0,2,0"  IsReadOnly="True" TextAlignment="Right" />
+                    </StackPanel>
+                    <StackPanel >
+                        <Label Content="{DynamicResource app.appointment.grossvalue}" Target="{Binding ElementName=TxtGrossValue}"/>
+                        <TextBox x:Name="TxtGrossValue" Text="{Binding Appointment.GrossValue, Mode=OneWay, StringFormat={}{0:n2}}" MinWidth="100"  Margin="5,0,2,0" IsReadOnly="True"  TextAlignment="Right" />
+                    </StackPanel>
+                    <StackPanel >
+                        <Label Content="{DynamicResource app.appointment.vat}" Target="{Binding ElementName=TxtVAT}"/>
+                        <TextBox x:Name="TxtVAT" Text="{Binding Appointment.VAT, Mode=OneWay, StringFormat={}{0:n2}}" MinWidth="100"  Margin="5,0,2,0" IsReadOnly="True" TextAlignment="Right"/>
+                    </StackPanel>
+                    <StackPanel >
+                        <Label Content="{DynamicResource app.appointment.total}" Target="{Binding ElementName=TxtNetValue}"/>
+                        <TextBox x:Name="TxtNetValue" Text="{Binding Appointment.NetValue, Mode=OneWay, StringFormat={}{0:n2}}" MinWidth="100"  Margin="5,0,2,0" IsReadOnly="True"  TextAlignment="Right"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+        <Grid Name="WaitGrid"  Visibility="Collapsed" Margin="{DynamicResource RootMargin}">
+            <Border Background="white" Opacity="0.2"></Border>
+            <mui:ModernProgressRing Name="WaitAnimation" IsActive="True" Width="80" Height="80" Style="{StaticResource ThreeBounceProgressRingStyle}" />
+        </Grid>
+        <Grid Name="SearchGrid"  Visibility="Collapsed">            
+            <Border Background="{DynamicResource CBackColor}" Opacity="0.95" Grid.RowSpan="2"  />
+            <mui:ModernFrame Name="SearchFrame"/>
+        </Grid>
+        
+    </Grid>
+</UserControl>

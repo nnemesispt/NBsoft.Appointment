@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="NBsoft.Appointment.WPF.Pages.HelpPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NBsoft.Appointment.WPF.Pages"
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:cmd="clr-namespace:NBsoft.Appointment.WPF.Commands"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Style="{StaticResource ContentRoot}">
+        <Grid.Resources>
+            <Style TargetType="mui:BBCodeBlock" >
+                <Setter Property="LinkNavigator">
+                    <Setter.Value>
+                        <mui:DefaultLinkNavigator>
+                            <mui:DefaultLinkNavigator.Commands>
+                                <cmd:OpenEULACommand x:Key="cmd://openEULA" />
+                                <cmd:OpenManualCommand x:Key="cmd://openManual" />
+                            </mui:DefaultLinkNavigator.Commands>
+                        </mui:DefaultLinkNavigator>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+        <StackPanel Margin="5">
+            <Label Name="Versionlabel" FontWeight="Bold"></Label>
+            <mui:BBCodeBlock BBCode="Show online [url=http://nbsoft.pt/]Help[/url]" Margin="0,5,0,0"></mui:BBCodeBlock>
+            <mui:BBCodeBlock BBCode="Open [url=cmd://openEULA]End User Licence Agreement[/url]" Margin="0,5,0,0"></mui:BBCodeBlock>
+        </StackPanel>
+    </Grid>
+</UserControl>

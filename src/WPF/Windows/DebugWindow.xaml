@@ -1,0 +1,23 @@
+﻿<Window x:Class="NBsoft.Appointment.WPF.Windows.DebugWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NBsoft.Appointment.WPF.Windows"
+        mc:Ignorable="d"
+        Title="DebugWindow" Height="300" Width="300">
+    <Grid>
+        <ListView Name="LvwLogs" Background="Black" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Time" DisplayMemberBinding="{Binding Path=LogDate}" />
+                    <GridViewColumn Header="Sender" DisplayMemberBinding="{Binding Path=Sender}" />
+                    <GridViewColumn Header="LogType" DisplayMemberBinding="{Binding Path=LogType}" />
+                    <GridViewColumn Header="Log" DisplayMemberBinding="{Binding Path=LogText}" />
+
+                </GridView>
+            </ListView.View>
+
+        </ListView>
+    </Grid>
+</Window>

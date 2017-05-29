@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="NBsoft.Appointment.WPF.Content.TableSearch"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NBsoft.Appointment.WPF.Content"
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:controls="clr-namespace:NBsoft.Appointment.WPF.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="100*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <controls:Taskbar Margin="0,0,0,5" IsSearchVisible="True" IsAddVisible="False" IsSaveVisible="False" IsDeleteVisible="False" Search="Taskbar_Search"  />
+        <DataGrid Name="DG1" Grid.Row="1" ItemsSource="{Binding ItemList }" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False">
+            <DataGrid.Columns>
+                <mui:DataGridTextColumn Binding="{Binding Id , Mode=OneWay}" IsReadOnly="True"  Width="120" >
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="{DynamicResource app.tablesearch.id}"></TextBlock>
+                    </DataGridTextColumn.Header>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="HorizontalAlignment" Value="Left" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </mui:DataGridTextColumn>
+                <mui:DataGridTextColumn Binding="{Binding Name , Mode=OneWay, StringFormat=\{0:yyyy-MM-dd\}}" IsReadOnly="True" Width="70*" >
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="{DynamicResource app.tablesearch.name}"></TextBlock>
+                    </DataGridTextColumn.Header>
+                </mui:DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <mui:ModernButton Name="BtnCancel"  IconData="{DynamicResource appbar_undo}"    EllipseDiameter="38" IconWidth="22"  IconHeight="22" FontSize="20" Content="{DynamicResource app.tablesearch.cancel}" Margin="0,5,0,10" Click="BtnCancel_Click" />
+            <mui:ModernButton Name="BtnOk"      IconData="{DynamicResource appbar_check}"   EllipseDiameter="38" IconWidth="22"  IconHeight="22" FontSize="20" Content="{DynamicResource app.tablesearch.ok}"     Margin="20,5,10,10" Click="BtnOk_Click"  />            
+        </StackPanel>
+    </Grid>
+</UserControl>

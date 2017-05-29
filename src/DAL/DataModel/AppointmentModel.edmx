@@ -1,0 +1,526 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="nbsoft.appointmentModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="useutf16encoding=True;data source=C:\ProgramData\NBsoft\Appointment1.0\nbsoft.appointment.sqlite" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_AppointmentType" Type="integer" Nullable="false" />
+          <Property Name="Id_Doctor" Type="integer" Nullable="false" />
+          <Property Name="Id_Customer" Type="integer" Nullable="false" />
+          <Property Name="Id_User" Type="integer" Nullable="false" />
+          <Property Name="Number" Type="integer" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="AppointmentDate" Type="datetime" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="ClientDiscount" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="FinanceDiscount" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="PaymentType" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="Coin" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="Exchange" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="TotalProducts" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="VATValue" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="ComercialDiscountVal" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="Report" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AppointmentType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="BirthDate" Type="datetime" Nullable="false" />
+          <Property Name="TaxIdNumber" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="MobilePhone" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="EMail" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="URL" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Address" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="City" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Country" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="IBAN" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Contact" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="DrivingLicense" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="DrivingLicenseType" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="DrivingLicenseDate" Type="datetime" Nullable="false" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="NextAppointment" Type="datetime" />
+          <Property Name="IntegrationRef" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="IntegrationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="TaxIdNumber" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="MobilePhone" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="EMail" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="URL" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Address" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="City" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Country" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="IBAN" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Contact" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="MainOptions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="Permissions" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Logon" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="Firstname" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="City" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Country" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="Theme" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="Accentcolor" Type="int" Nullable="false" />
+          <Property Name="Language" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="PIN" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Appointment_0_0">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="Id_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_1_0">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="Id_Customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_2_0">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="Id_Doctor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_3_0">
+          <End Role="AppointmentType" Type="Self.AppointmentType" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppointmentType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="Id_AppointmentType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="nbsoftappointmentModelStoreContainer">
+          <EntitySet Name="Appointment" EntityType="Self.Appointment" store:Type="Tables" />
+          <EntitySet Name="AppointmentType" EntityType="Self.AppointmentType" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" store:Type="Tables" />
+          <EntitySet Name="Doctor" EntityType="Self.Doctor" store:Type="Tables" />
+          <EntitySet Name="MainOptions" EntityType="Self.MainOptions" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" store:Type="Tables" />
+          <AssociationSet Name="FK_Appointment_0_0" Association="Self.FK_Appointment_0_0">
+            <End Role="User" EntitySet="User" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_1_0" Association="Self.FK_Appointment_1_0">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_2_0" Association="Self.FK_Appointment_2_0">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_3_0" Association="Self.FK_Appointment_3_0">
+            <End Role="AppointmentType" EntitySet="AppointmentType" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="nbsoft.appointmentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AppointmentType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Appointment" Relationship="nbsoft.appointmentModel.FK_Appointment_3_0" FromRole="AppointmentType" ToRole="Appointment" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" />
+          <Property Name="TaxIdNumber" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MobilePhone" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="EMail" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="URL" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="IBAN" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Comments" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Contact" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Appointment" Relationship="nbsoft.appointmentModel.FK_Appointment_2_0" FromRole="Doctor" ToRole="Appointment" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Logon" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Firstname" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Lastname" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Theme" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Accentcolor" Type="Int32" Nullable="false" />
+          <Property Name="Language" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PIN" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Appointment" Relationship="nbsoft.appointmentModel.FK_Appointment_0_0" FromRole="User" ToRole="Appointment" />
+        </EntityType>
+        <EntityContainer Name="AppointmentEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AppointmentType" EntityType="Self.AppointmentType" />
+          <EntitySet Name="Doctor" EntityType="Self.Doctor" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="MainOptions" EntityType="nbsoft.appointmentModel.MainOptions" />
+          <EntitySet Name="Appointment" EntityType="nbsoft.appointmentModel.Appointment" />
+          <EntitySet Name="Customer" EntityType="nbsoft.appointmentModel.Customer" />
+          <AssociationSet Name="FK_Appointment_0_0" Association="nbsoft.appointmentModel.FK_Appointment_0_0">
+            <End Role="User" EntitySet="User" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_1_0" Association="nbsoft.appointmentModel.FK_Appointment_1_0">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_2_0" Association="nbsoft.appointmentModel.FK_Appointment_2_0">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_3_0" Association="nbsoft.appointmentModel.FK_Appointment_3_0">
+            <End Role="AppointmentType" EntitySet="AppointmentType" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="MainOptions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Permissions" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_AppointmentType" Type="Int64" Nullable="false" />
+          <Property Name="Id_Doctor" Type="Int64" Nullable="false" />
+          <Property Name="Id_Customer" Type="Int64" Nullable="false" />
+          <Property Name="Id_User" Type="Int64" Nullable="false" />
+          <Property Name="Number" Type="Int64" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" />
+          <Property Name="AppointmentDate" Type="DateTime" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="ClientDiscount" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+          <Property Name="FinanceDiscount" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+          <Property Name="PaymentType" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Coin" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Exchange" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+          <Property Name="TotalProducts" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+          <Property Name="VATValue" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+          <Property Name="ComercialDiscountVal" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+          <Property Name="Report" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Comments" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="nbsoft.appointmentModel.FK_Appointment_0_0" FromRole="Appointment" ToRole="User" />
+          <NavigationProperty Name="Customer" Relationship="nbsoft.appointmentModel.FK_Appointment_1_0" FromRole="Appointment" ToRole="Customer" />
+          <NavigationProperty Name="Doctor" Relationship="nbsoft.appointmentModel.FK_Appointment_2_0" FromRole="Appointment" ToRole="Doctor" />
+          <NavigationProperty Name="AppointmentType" Relationship="nbsoft.appointmentModel.FK_Appointment_3_0" FromRole="Appointment" ToRole="AppointmentType" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" />
+          <Property Name="BirthDate" Type="DateTime" Nullable="false" />
+          <Property Name="TaxIdNumber" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="MobilePhone" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="EMail" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="URL" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="IBAN" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Contact" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="DrivingLicense" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="DrivingLicenseType" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="DrivingLicenseDate" Type="DateTime" Nullable="false" />
+          <Property Name="Comments" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="NextAppointment" Type="DateTime" />
+          <Property Name="IntegrationRef" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="IntegrationDate" Type="DateTime" />
+          <NavigationProperty Name="Appointment" Relationship="nbsoft.appointmentModel.FK_Appointment_1_0" FromRole="Customer" ToRole="Appointment" />
+        </EntityType>
+        <Association Name="FK_Appointment_0_0">
+          <End Type="nbsoft.appointmentModel.User" Role="User" Multiplicity="1" />
+          <End Type="nbsoft.appointmentModel.Appointment" Role="Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="Id_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_1_0">
+          <End Type="nbsoft.appointmentModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="nbsoft.appointmentModel.Appointment" Role="Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="Id_Customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_2_0">
+          <End Type="nbsoft.appointmentModel.Doctor" Role="Doctor" Multiplicity="1" />
+          <End Type="nbsoft.appointmentModel.Appointment" Role="Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="Id_Doctor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_3_0">
+          <End Type="nbsoft.appointmentModel.AppointmentType" Role="AppointmentType" Multiplicity="1" />
+          <End Type="nbsoft.appointmentModel.Appointment" Role="Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppointmentType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="Id_AppointmentType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="nbsoftappointmentModelStoreContainer" CdmEntityContainer="AppointmentEntities">
+          <EntitySetMapping Name="AppointmentType">
+            <EntityTypeMapping TypeName="nbsoft.appointmentModel.AppointmentType">
+              <MappingFragment StoreEntitySet="AppointmentType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Doctor">
+            <EntityTypeMapping TypeName="nbsoft.appointmentModel.Doctor">
+              <MappingFragment StoreEntitySet="Doctor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="TaxIdNumber" ColumnName="TaxIdNumber" />
+                <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="EMail" ColumnName="EMail" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="IBAN" ColumnName="IBAN" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="nbsoft.appointmentModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Logon" ColumnName="Logon" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Theme" ColumnName="Theme" />
+                <ScalarProperty Name="Accentcolor" ColumnName="Accentcolor" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="PIN" ColumnName="PIN" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MainOptions">
+            <EntityTypeMapping TypeName="nbsoft.appointmentModel.MainOptions">
+              <MappingFragment StoreEntitySet="MainOptions">
+                <ScalarProperty Name="Permissions" ColumnName="Permissions" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Appointment">
+            <EntityTypeMapping TypeName="nbsoft.appointmentModel.Appointment">
+              <MappingFragment StoreEntitySet="Appointment">
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Report" ColumnName="Report" />
+                <ScalarProperty Name="ComercialDiscountVal" ColumnName="ComercialDiscountVal" />
+                <ScalarProperty Name="VATValue" ColumnName="VATValue" />
+                <ScalarProperty Name="TotalProducts" ColumnName="TotalProducts" />
+                <ScalarProperty Name="Exchange" ColumnName="Exchange" />
+                <ScalarProperty Name="Coin" ColumnName="Coin" />
+                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+                <ScalarProperty Name="FinanceDiscount" ColumnName="FinanceDiscount" />
+                <ScalarProperty Name="ClientDiscount" ColumnName="ClientDiscount" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+                <ScalarProperty Name="Id_Customer" ColumnName="Id_Customer" />
+                <ScalarProperty Name="Id_Doctor" ColumnName="Id_Doctor" />
+                <ScalarProperty Name="Id_AppointmentType" ColumnName="Id_AppointmentType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customer">
+            <EntityTypeMapping TypeName="nbsoft.appointmentModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="IntegrationDate" ColumnName="IntegrationDate" />
+                <ScalarProperty Name="IntegrationRef" ColumnName="IntegrationRef" />
+                <ScalarProperty Name="NextAppointment" ColumnName="NextAppointment" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="DrivingLicenseDate" ColumnName="DrivingLicenseDate" />
+                <ScalarProperty Name="DrivingLicenseType" ColumnName="DrivingLicenseType" />
+                <ScalarProperty Name="DrivingLicense" ColumnName="DrivingLicense" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="IBAN" ColumnName="IBAN" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="EMail" ColumnName="EMail" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+                <ScalarProperty Name="TaxIdNumber" ColumnName="TaxIdNumber" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

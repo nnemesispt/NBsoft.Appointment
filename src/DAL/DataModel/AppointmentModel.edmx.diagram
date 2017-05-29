@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cb785f781e664f4fab6e0ad4b53388a7" Name="Diagram1">
+        <EntityTypeShape EntityType="nbsoft.appointmentModel.AppointmentType" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="nbsoft.appointmentModel.Doctor" Width="1.5" PointX="5.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="nbsoft.appointmentModel.User" Width="1.5" PointX="0.5" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="nbsoft.appointmentModel.MainOptions" Width="1.5" PointX="7.875" PointY="0.5" />
+        <EntityTypeShape EntityType="nbsoft.appointmentModel.Appointment" Width="1.5" PointX="3.375" PointY="0.5" />
+        <EntityTypeShape EntityType="nbsoft.appointmentModel.Customer" Width="1.5" PointX="5.75" PointY="0.5" />
+        <AssociationConnector Association="nbsoft.appointmentModel.FK_Appointment_0_0" />
+        <AssociationConnector Association="nbsoft.appointmentModel.FK_Appointment_1_0" />
+        <AssociationConnector Association="nbsoft.appointmentModel.FK_Appointment_2_0" />
+        <AssociationConnector Association="nbsoft.appointmentModel.FK_Appointment_3_0" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
