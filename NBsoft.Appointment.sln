@@ -1,11 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBsoft.Appointment.DAL", "src\DAL\NBsoft.Appointment.DAL.csproj", "{743E04C1-16F8-4B25-ACC2-3F5633E68AC6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBsoft.Appointment.WPF", "src\WPF\NBsoft.Appointment.WPF.csproj", "{0E428F1C-85C2-45C8-A73A-370032A6F25D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{98860359-4E13-407F-9AD8-05DAD97E8102}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE.txt = LICENSE.txt
+		README.md = README.md
+		THIRDPARTYLICENSEREADME.txt = THIRDPARTYLICENSEREADME.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

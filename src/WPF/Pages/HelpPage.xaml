@@ -11,7 +11,7 @@
     <Grid Style="{StaticResource ContentRoot}">
         <Grid.Resources>
             <Style TargetType="mui:BBCodeBlock" >
-                <Setter Property="LinkNavigator">
+                <!--<Setter Property="LinkNavigator">
                     <Setter.Value>
                         <mui:DefaultLinkNavigator>
                             <mui:DefaultLinkNavigator.Commands>
@@ -20,13 +20,17 @@
                             </mui:DefaultLinkNavigator.Commands>
                         </mui:DefaultLinkNavigator>
                     </Setter.Value>
-                </Setter>
+                </Setter>-->
             </Style>
         </Grid.Resources>
         <StackPanel Margin="5">
-            <Label Name="Versionlabel" FontWeight="Bold"></Label>
-            <mui:BBCodeBlock BBCode="Show online [url=http://nbsoft.pt/]Help[/url]" Margin="0,5,0,0"></mui:BBCodeBlock>
-            <mui:BBCodeBlock BBCode="Open [url=cmd://openEULA]End User Licence Agreement[/url]" Margin="0,5,0,0"></mui:BBCodeBlock>
+            <Label Name="Versionlabel" FontWeight="Bold" Margin="0,4"></Label>
+            <Label Margin="0,0,0,20">Copyright (c) 2017 Nuno Benjamim Araújo</Label>            
+            <!--<mui:BBCodeBlock BBCode="Open [url=cmd://openEULA]Software Licence Agreement[/url]" Margin="0,5,0,0"></mui:BBCodeBlock>-->
+            <mui:BBCodeBlock BBCode="This software is Open Source and it is licensed under the [url=https://github.com/nnemesispt/NBsoft.Appointment/blob/master/LICENSE.txt]MIT License[/url]" Margin="0,5,0,0"></mui:BBCodeBlock>
+            <mui:BBCodeBlock BBCode="Source code available on [url=https://github.com/nnemesispt/NBsoft.Appointment]Github[/url]" Margin="0,5,0,0"></mui:BBCodeBlock>
+            <mui:BBCodeBlock BBCode="Show online [url=http://nbsoft.pt/V1]Help[/url]" Margin="0,15,0,0"></mui:BBCodeBlock>
+            
         </StackPanel>
     </Grid>
 </UserControl>

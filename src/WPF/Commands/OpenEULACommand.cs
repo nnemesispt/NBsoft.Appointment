@@ -20,7 +20,7 @@ namespace NBsoft.Appointment.WPF.Commands
         {
             System.Diagnostics.ProcessStartInfo psi = new System.Diagnostics.ProcessStartInfo()
             {
-                FileName = System.IO.Path.Combine(Globals.InstallPath, "Software_Disclaimer_Appointment.rtf"),
+                FileName = System.IO.Path.Combine(Globals.InstallPath, "LICENSE.txt"),
                 UseShellExecute = true
             };
 

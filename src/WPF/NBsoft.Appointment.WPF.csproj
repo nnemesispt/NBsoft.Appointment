@@ -418,7 +418,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Documents\Software_Disclaimer_Appointment.rtf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -447,7 +446,6 @@
     <Resource Include="Theme\background.snowflakes.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Documents\THIRDPARTYLICENSEREADME.txt" />
     <None Include="Install\vcredist_x64.exe" />
     <None Include="Install\vcredist_x86.exe" />
     <None Include="Install\WizModernImage-IS.bmp" />
