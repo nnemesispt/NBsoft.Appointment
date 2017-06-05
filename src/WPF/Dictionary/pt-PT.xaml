@@ -26,7 +26,7 @@ Por favor contacte o suporte através do e-mail: suporte@nbsoft.pt</system:Strin
 	<system:String x:Key="app.mainwindow.tables">Tabelas</system:String>
 	<system:String x:Key="app.mainwindow.info">Informação</system:String>
 	<system:String x:Key="app.mainwindow.customers">Clientes</system:String>
-	<system:String x:Key="app.mainwindow.doctors">Doutores</system:String>
+	<system:String x:Key="app.mainwindow.doctors">Colaboradores</system:String>
 	<system:String x:Key="app.mainwindow.appointmenttype">Tipos de Consulta</system:String>
 	<system:String x:Key="app.mainwindow.management">Gestão</system:String>
 	<system:String x:Key="app.mainwindow.appointments">Consultas</system:String>
@@ -52,7 +52,7 @@ Para um resumo do sistema por favor consulte o {0}</system:String>
 	<system:String x:Key="app.dashboard.start.nextappointments">Proximas Consultas</system:String>
 	<system:String x:Key="app.dashboard.start.appointments">Estatisticas das Consultas</system:String>
 	<system:String x:Key="app.dashboard.start.appointmentscount">Número de Consultas</system:String>
-	<system:String x:Key="app.dashboard.start.appointmentsdoctor">Consultas por Médico (últimos 12 meses)</system:String>
+	<system:String x:Key="app.dashboard.start.appointmentsdoctor">Consultas por Colaborador (últimos 12 meses)</system:String>
 	
 	<system:String x:Key="app.settings.appearance">Aparência</system:String>	
 	<system:String x:Key="app.settings.language">Idioma</system:String>	
@@ -79,10 +79,9 @@ Para um resumo do sistema por favor consulte o {0}</system:String>
 	<system:String x:Key="app.user.pin.mustbenumber">O PIN tem de ser um número.</system:String>
 	<system:String x:Key="app.user.pin.tooshort">O PIN tem de ter no mínimo 3 digitos</system:String>
 	<system:String x:Key="app.user.alreadyexists">Já existe esta conta de utilizador.
-Escolha um node conta diferente.</system:String>
+Escolha um nome de conta diferente.</system:String>
 	<system:String x:Key="app.user.adduser">Adicionar Utilizador</system:String>
-	<system:String x:Key="app.user.email">E-Mail</system:String>
-	
+	<system:String x:Key="app.user.email">E-Mail</system:String>	
 	
 	
 	<system:String x:Key="app.user.changepassword.current">Senha Atual</system:String>	
@@ -98,7 +97,7 @@ Escolha um node conta diferente.</system:String>
 	<system:String x:Key="app.tables.description" xml:space="preserve">Nesta seçcão pode gerir as tabelas de dados principais da aplicação.
 Pode criar, alterar ou apagar registos das seguintes tabelas:</system:String>	
 	<system:String x:Key="app.tables.customers">Clientes</system:String>	
-	<system:String x:Key="app.tables.doctors">Doutores</system:String>	
+	<system:String x:Key="app.tables.doctors">Colaboradores</system:String>	
 	<system:String x:Key="app.tables.appointmenttype">Tipos de Consulta</system:String>	
 	
 	<system:String x:Key="app.customer.save.ok">O cliente foi gravado com sucesso.</system:String>	
@@ -135,7 +134,7 @@ Pode criar, alterar ou apagar registos das seguintes tabelas:</system:String>
 	<system:String x:Key="app.customer.details.nextappointment">Próxima Consulta</system:String>		
 	<system:String x:Key="app.customer.details.link">Detalhes</system:String>	
 
-	<system:String x:Key="app.doctor.save.ok">O doutor foi gravado com sucesso.</system:String>	
+	<system:String x:Key="app.doctor.save.ok">O colaborador foi gravado com sucesso.</system:String>	
 	<system:String x:Key="app.doctor.save.failed">Ocorreram erros ao gravar o doutor.</system:String>	
 	<system:String x:Key="app.doctor.save.taxidalreadyexists">Não pode usar este NIF pois já existe para o doutor</system:String>	
 	<system:String x:Key="app.doctor.delete.confirm" xml:space="preserve">Vai apagar este doutor. Esta ação é irreversível.

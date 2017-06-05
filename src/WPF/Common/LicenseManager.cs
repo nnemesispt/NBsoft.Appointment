@@ -18,15 +18,10 @@ namespace NBsoft.Appointment.WPF.Common
         //IXPLicense LocalLicense;
 
         public NBLicense ServerLicense { get; private set; }
-        private string LastConnFile { get { return Globals.CommonPath + "\\_lc.bin"; } }
-
+        
         public LicenseManager(Uri LicenseServerUrl)
         {
             LicenseServerEndPoint = LicenseServerUrl;
-
-            System.IO.FileInfo fi = new System.IO.FileInfo(LastConnFile);
-            if (!fi.Exists)
-                SetLastConnection(new DateTime(2000, 1, 1));
         }
 
 
@@ -140,11 +135,7 @@ namespace NBsoft.Appointment.WPF.Common
             try
             {
                 Task<Common.NBLicense> res = ValidateLicense(localLic.ServerId, localLic.TaxIdNumber, localLic.Name, localLic.Email, uik);
-                while (!res.IsCompleted)
-                {
-                    System.Threading.Thread.Sleep(50);
-
-                }
+                res.Wait();
                 remoteLicense = res.Result;
             }
             catch (Exception ex01)
@@ -201,18 +192,12 @@ namespace NBsoft.Appointment.WPF.Common
             if (e.Error != null)
             {
                 ServerLicense = null;
-                DateTime LastConnection = GetLastConnection();
-                if (LastConnection.AddDays(30) < DateTime.Now)                
-                    OnCheckLicenseError(new ErrorEventArgs(new ApplicationException("License Check Timelimit Hit")));                
-                else
-                    OnCheckLicenseError(new ErrorEventArgs(e.Error));
-                return;
+                OnCheckLicenseError(new ErrorEventArgs(e.Error));
             }
-            DateTime lastconn = DateTime.Now;
-            //test
-            //lastconn = DateTime.Now.AddMonths(-6);
-            SetLastConnection(lastconn);
-            OnCheckLicenseFinished(new LicenseEventArgs(ServerLicense));
+            else
+            {                
+                OnCheckLicenseFinished(new LicenseEventArgs(ServerLicense));
+            }
         }
 
         public async Task<NBLicense> UpdateLicense(NBLicense license)
@@ -265,36 +250,7 @@ namespace NBsoft.Appointment.WPF.Common
             return retval;
         }
 
-        private void SetLastConnection(DateTime date)
-        {
-            string dtstring = Globals.Encrypt(date.ToString("yyyy-MM-dd HH:mm:ss"));
-            using (System.IO.StreamWriter sw = new System.IO.StreamWriter(LastConnFile, false, Encoding.UTF8))
-            {
-                sw.Write(dtstring);
-                sw.Close();
-            }
-
-        }
-        private DateTime GetLastConnection()
-        {
-            string dtstring = "";
-            using (System.IO.StreamReader sr = new System.IO.StreamReader(LastConnFile, Encoding.UTF8, false))
-            {
-                dtstring = sr.ReadToEnd();
-                sr.Close();
-            }
-            DateTime retval;
-            try
-            {
-                string plaindt = Globals.Decrypt(dtstring);
-                retval = DateTime.Parse(plaindt);
-            }
-            catch
-            {
-                retval = new DateTime(2000, 1, 1);
-            }
-            return retval;
-        }
+        
 
         void OnCheckLicenseError(ErrorEventArgs e)
         {

@@ -4,7 +4,12 @@
 
 	<system:String x:Key="app.error">Errors ocurred</system:String>							
 	<system:String x:Key="app.nochanges">No changes exist.</system:String>	
+	<system:String x:Key="app.invalidselection">Invalid selection.</system:String>	
+	<system:String x:Key="app.invalidlicense">Invalid license. Please contact support: suporte@nbsoft.pt</system:String>	
 	<system:String x:Key="app.database.updatefailed">Errors ocurred updating the database.</system:String>	
+	<system:String x:Key="app.license.limitreached" xml:space="preserve">License limit reached. Its not possible to add more records. 
+Please contact support: suporte@nbsoft.pt</system:String>
+	
 	
     <system:String x:Key="app.logonwindow.cancel">Cancel</system:String>
 	<system:String x:Key="app.logonwindow.ok">Ok</system:String>
@@ -21,12 +26,22 @@
 	<system:String x:Key="app.mainwindow.tables">Tables</system:String>
 	<system:String x:Key="app.mainwindow.info">Information</system:String>
 	<system:String x:Key="app.mainwindow.customers">Customers</system:String>
-	<system:String x:Key="app.mainwindow.doctors">Doctors</system:String>
+	<system:String x:Key="app.mainwindow.doctors">Employees</system:String>
 	<system:String x:Key="app.mainwindow.appointmenttype">Appointment Types</system:String>
 	<system:String x:Key="app.mainwindow.management">Management</system:String>
 	<system:String x:Key="app.mainwindow.appointments">Appointments</system:String>
 	
-	<system:String x:Key="app.taskbar.new">New</system:String>	
+	<system:String x:Key="app.taskbar.new">New Record</system:String>	
+	<system:String x:Key="app.taskbar.edit">Edit Record</system:String>	
+	<system:String x:Key="app.taskbar.save">Save Changes</system:String>	
+	<system:String x:Key="app.taskbar.delete">Delete Record</system:String>	
+	<system:String x:Key="app.taskbar.print">Print</system:String>	
+	<system:String x:Key="app.taskbar.search">Search</system:String>	
+	
+	<system:String x:Key="app.tablesearch.id">Identification</system:String>	
+	<system:String x:Key="app.tablesearch.name">Name</system:String>	
+	<system:String x:Key="app.tablesearch.ok">OK</system:String>		
+	<system:String x:Key="app.tablesearch.cancel">Cancel</system:String>	
 	
 	<system:String x:Key="app.welcomepage.welcometext" xml:space="preserve">Welcome to [b]NBsoft.Appointment[/b].
 For a system overview see the {0}</system:String>
@@ -34,7 +49,10 @@ For a system overview see the {0}</system:String>
 	
 	<system:String x:Key="app.dashboard.header">Dashboard</system:String>
 	
-	<system:String x:Key="app.dashboard.start.appointments">Appointment Statistics</system:String>
+	<system:String x:Key="app.dashboard.start.nextappointments">Next Appointments</system:String>
+	<system:String x:Key="app.dashboard.start.appointments">Appointments Statistics</system:String>
+	<system:String x:Key="app.dashboard.start.appointmentscount">Appointment Number</system:String>
+	<system:String x:Key="app.dashboard.start.appointmentsdoctor">Appointments by Employee (last 12 months)</system:String>
 	
 	<system:String x:Key="app.settings.appearance">Appearance</system:String>	
 	<system:String x:Key="app.settings.language">Language</system:String>	
@@ -60,6 +78,11 @@ For a system overview see the {0}</system:String>
 	<system:String x:Key="app.user.saveok">User saved successfully.</system:String>
 	<system:String x:Key="app.user.pin.mustbenumber">PIN must be a number.</system:String>
 	<system:String x:Key="app.user.pin.tooshort">PIN must have at least 3 digits.</system:String>
+	<system:String x:Key="app.user.alreadyexists">User account already exists.
+Choose a different account name.</system:String>
+	<system:String x:Key="app.user.adduser">Add User</system:String>
+	<system:String x:Key="app.user.email">E-Mail</system:String>
+	
 	
 	<system:String x:Key="app.user.changepassword.current">Current Password</system:String>	
 	<system:String x:Key="app.user.changepassword.new">New Password</system:String>	
@@ -74,14 +97,123 @@ For a system overview see the {0}</system:String>
 	<system:String x:Key="app.tables.description" xml:space="preserve">On this section you can manage the application's main database tables.
 You can create, edit or delete records on the following tables:</system:String>	
 	<system:String x:Key="app.tables.customers">Customers</system:String>	
-	<system:String x:Key="app.tables.doctors">Doctors</system:String>	
+	<system:String x:Key="app.tables.doctors">Employees</system:String>	
 	<system:String x:Key="app.tables.appointmenttype">Appointment Types</system:String>	
 	
-	<system:String x:Key="app.customer.save.ok">O cliente foi gravado com sucesso.</system:String>	
-	<system:String x:Key="app.customer.save.failed">Ocorreram erros ao gravar o cliente.</system:String>	
-	<system:String x:Key="app.customer.save.taxidalreadyexists">This Tax Id Number cannot be used because it is set to customer</system:String>	
-	<system:String x:Key="app.customer.delete.confirm">ddd.</system:String>
-	<system:String x:Key="app.customer.delete.ok">O cliente foi apagado com sucesso.</system:String>	
-	<system:String x:Key="app.customer.delete.failed">Ocorreram erros ao apagar o cliente.</system:String>
+	<system:String x:Key="app.customer.save.ok">Customer saved successfully</system:String>	
+	<system:String x:Key="app.customer.save.failed">Errors ocurred saving customer.</system:String>	
+	<system:String x:Key="app.customer.save.taxidalreadyexists">Tax Id Number already exists for another customer.</system:String>	
+	<system:String x:Key="app.customer.delete.confirm" xml:space="preserve">This customer will be deleted. This action is not reversible.
+	Do you wish to continue?</system:String>
+	<system:String x:Key="app.customer.listcount">Listed Customers:</system:String>	
+	<system:String x:Key="app.customer.delete.ok">Customer deleted successfully.</system:String>	
+	<system:String x:Key="app.customer.delete.failed">Errors ocurred deleting customer.</system:String>	
+	<system:String x:Key="app.customer.details.id">Id</system:String>
+	<system:String x:Key="app.customer.details.name">Name</system:String>
+    <system:String x:Key="app.customer.details.age">Age</system:String>
+    
+	<system:String x:Key="app.customer.details.taxidnumber">Tax Id</system:String>
+	<system:String x:Key="app.customer.details.birthday">Birth Date</system:String>	
+	<system:String x:Key="app.customer.details.mobilephone">Mobile</system:String>
+	<system:String x:Key="app.customer.details.telephone">Phone</system:String>
+	<system:String x:Key="app.customer.details.fax">Fax</system:String>
+	<system:String x:Key="app.customer.details.email">E-Mail</system:String>
+	<system:String x:Key="app.customer.details.url">URL</system:String>
+	<system:String x:Key="app.customer.details.address">Address</system:String>
+	<system:String x:Key="app.customer.details.postalcode">Postal Code</system:String>
+	<system:String x:Key="app.customer.details.city">City</system:String>
+	<system:String x:Key="app.customer.details.country">Country</system:String>
+	<system:String x:Key="app.customer.details.iban">IBAN</system:String>
+	<system:String x:Key="app.customer.details.contact">Contact</system:String>
+	<system:String x:Key="app.customer.details.drivinglicense">Driver's License</system:String>
+	<system:String x:Key="app.customer.details.drivinglicensetype">Driver's License Category</system:String>
+	<system:String x:Key="app.customer.details.drivinglicensedate">Driver's License Date</system:String>
+	<system:String x:Key="app.customer.details.integrationref">Integration</system:String>
+	<system:String x:Key="app.customer.details.date">Date</system:String>
+	<system:String x:Key="app.customer.details.comments">Comments</system:String>	
+	<system:String x:Key="app.customer.details.nextappointment">Next Appointment</system:String>		
+	<system:String x:Key="app.customer.details.link">Details</system:String>	
+
+	<system:String x:Key="app.doctor.save.ok">Employee saved successfully.</system:String>	
+	<system:String x:Key="app.doctor.save.failed">Errors ocurred saving employee.</system:String>	
+	<system:String x:Key="app.doctor.save.taxidalreadyexists">Tax Id Number already exists for another employee</system:String>	
+	<system:String x:Key="app.doctor.delete.confirm" xml:space="preserve">This employee will be deleted. This action is not reversible.
+	Do you wish to continue?</system:String>
+	<system:String x:Key="app.doctor.delete.ok">Employee deleted successfully.</system:String>	
+	<system:String x:Key="app.doctor.delete.failed">Errors ocurred deleting employee.</system:String>	
+	<system:String x:Key="app.doctor.details.id">Id</system:String>
+	<system:String x:Key="app.doctor.details.name">Name</system:String>
+	<system:String x:Key="app.doctor.details.taxidnumber">Tax Id</system:String>
+	<system:String x:Key="app.doctor.details.mobilephone">Mobile</system:String>
+	<system:String x:Key="app.doctor.details.telephone">Phone</system:String>
+	<system:String x:Key="app.doctor.details.fax">Fax</system:String>
+	<system:String x:Key="app.doctor.details.email">E-Mail</system:String>
+	<system:String x:Key="app.doctor.details.url">URL</system:String>
+	<system:String x:Key="app.doctor.details.address">Address</system:String>
+	<system:String x:Key="app.doctor.details.postalcode">Postal Code</system:String>
+	<system:String x:Key="app.doctor.details.city">City</system:String>
+	<system:String x:Key="app.doctor.details.country">Country</system:String>
+	<system:String x:Key="app.doctor.details.iban">IBAN</system:String>
+	<system:String x:Key="app.doctor.details.contact">Contact</system:String>
+	<system:String x:Key="app.doctor.details.comments">Comments</system:String>	
+	
+	<system:String x:Key="app.appointmenttype.save.ok">Appointment type saved successfully.</system:String>	
+	<system:String x:Key="app.appointmenttype.save.failed">Errors ocurred saving appointment type.</system:String>
+	<system:String x:Key="app.appointmenttype.delete.confirm" xml:space="preserve">This appointment type will be deleted. This action is not reversible.
+	Do you wish to continue?</system:String>
+	<system:String x:Key="app.appointmenttype.delete.ok">Appointment type deleted successfully.</system:String>	
+	<system:String x:Key="app.appointmenttype.delete.failed">Errors ocurred deleting appointment type.</system:String>	
+	<system:String x:Key="app.appointmenttype.details.id">Id</system:String>
+	<system:String x:Key="app.appointmenttype.details.name">Name</system:String>
+	
+	<system:String x:Key="app.management.title">Management Section</system:String>	
+	<system:String x:Key="app.management.description" xml:space="preserve">In this section you can manage the application's movements.
+	The available options are:</system:String>	
+	<system:String x:Key="app.management.appointments">Appointments</system:String>	
+		
+	<system:String x:Key="app.appointment.list">Appointments List</system:String>	
+	<system:String x:Key="app.appointment.details">Appointment Details</system:String>	
+	<system:String x:Key="app.appointment.new">New appointment.</system:String>	
+	<system:String x:Key="app.appointment.delete.confirm">This appointment will be deleted. This action is not reversible.
+	Do you wish to continue?</system:String>
+	<system:String x:Key="app.appointment.save.ok">Appointment type saved successfully.</system:String>	
+	<system:String x:Key="app.appointment.save.failed">Errors ocurred saving appointment.</system:String>
+	<system:String x:Key="app.appointment.delete.ok">Appointment deleted successfully.</system:String>	
+	<system:String x:Key="app.appointment.delete.failed">Errors ocurred deleting appointment.</system:String>
+	
+	
+	<system:String x:Key="app.appointment.list.filter">Filter</system:String>	
+	<system:String x:Key="app.appointment.list.id">Id</system:String>	
+	<system:String x:Key="app.appointment.list.number">Number</system:String>
+	<system:String x:Key="app.appointment.list.start">Start</system:String>	
+	<system:String x:Key="app.appointment.list.finish">Finish</system:String>	
+	<system:String x:Key="app.appointment.list.customer">Customer</system:String>
+	<system:String x:Key="app.appointment.list.doctor">Employee</system:String>
+	<system:String x:Key="app.appointment.list.appointmenttype">Appointment Type</system:String>
+	<system:String x:Key="app.appointment.list.total">Total</system:String>
+	<system:String x:Key="app.appointment.list.resizecolumns">Resize Columns</system:String>
+	
+	<system:String x:Key="app.appointment.id">Id</system:String>	
+	<system:String x:Key="app.appointment.date">Date</system:String>	
+	<system:String x:Key="app.appointment.type">Appointment Type</system:String>	
+	<system:String x:Key="app.appointment.doctor">Employee</system:String>	
+	<system:String x:Key="app.appointment.customer">Customer</system:String>	
+	<system:String x:Key="app.appointment.user">User</system:String>	
+	<system:String x:Key="app.appointment.number">Number</system:String>
+	<system:String x:Key="app.appointment.description">Description</system:String>	
+	<system:String x:Key="app.appointment.comments">Comments</system:String>		
+	<system:String x:Key="app.appointment.appointmenttype">Appointment Type</system:String>		
+	<system:String x:Key="app.appointment.paymenttype">Payment Type</system:String>		
+	<system:String x:Key="app.appointment.coin">Coin</system:String>		
+	<system:String x:Key="app.appointment.exchange">Exchange</system:String>
+	<system:String x:Key="app.appointment.totalproducts">Products</system:String>
+	<system:String x:Key="app.appointment.clientdiscount">Customer discount</system:String>
+	<system:String x:Key="app.appointment.financediscount">Finance discount</system:String>
+	<system:String x:Key="app.appointment.vat">VAT</system:String>
+	<system:String x:Key="app.appointment.value">Value</system:String>
+	<system:String x:Key="app.appointment.dicountvalue">Discounts</system:String>
+	<system:String x:Key="app.appointment.grossvalue">Gross</system:String>
+	<system:String x:Key="app.appointment.total">Total</system:String>
+	<system:String x:Key="app.appointment.report">Report</system:String>
 	
 </ResourceDictionary>

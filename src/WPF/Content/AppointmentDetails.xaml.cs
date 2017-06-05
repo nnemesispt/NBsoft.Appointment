@@ -109,20 +109,21 @@ namespace NBsoft.Appointment.WPF.Content
                 ModernDialog.ShowMessage(Globals.DicMan.Get("app.invalidlicense"), Globals.AppName, MessageBoxButton.OK, Globals.MainWnd);
                 return;
             }
-            if (Globals.License.LicenseTypeC != Enums.LicenseType.Pro)
-            {
-                // Free License only allows 10 new appointments/month
-                if (viewModel.Appointment.Id == 0)
-                {
-                    DateTime starDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
-                    var appointments = Globals.Db.GetAppointment(starDate, DateTime.Today);
-                    if (appointments.Length >= 10)
-                    {
-                        ModernDialog.ShowMessage(Globals.DicMan.Get("app.license.limitreached"), Globals.AppName, MessageBoxButton.OK, Globals.MainWnd);
-                        return;
-                    }
-                }
-            }
+            // Removed License limits for freeware version
+            //if (Globals.License.LicenseTypeC != Enums.LicenseType.Pro)
+            //{
+            //    // Free License only allows 10 new appointments/month
+            //    if (viewModel.Appointment.Id == 0)
+            //    {
+            //        DateTime starDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+            //        var appointments = Globals.Db.GetAppointment(starDate, DateTime.Today);
+            //        if (appointments.Length >= 10)
+            //        {
+            //            ModernDialog.ShowMessage(Globals.DicMan.Get("app.license.limitreached"), Globals.AppName, MessageBoxButton.OK, Globals.MainWnd);
+            //            return;
+            //        }
+            //    }
+            //}
 
 
             ShowWait();

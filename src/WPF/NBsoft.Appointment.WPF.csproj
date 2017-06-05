@@ -73,10 +73,6 @@
       <HintPath>..\..\packages\ModernUI.WPF.1.0.9\lib\net45\FirstFloor.ModernUI.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="NBsoft.NAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Install\NBsoft.NAL.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -93,6 +89,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -137,6 +134,7 @@
     <Compile Include="Common\AppConfiguration.cs" />
     <Compile Include="Common\EventArgs\ErrorEventArgs.cs" />
     <Compile Include="Common\EventArgs\LicenseEventArgs.cs" />
+    <Compile Include="Common\HardwareKey.cs" />
     <Compile Include="Common\LicenseManager.cs" />
     <Compile Include="Enums\LicenseType.cs" />
     <Compile Include="Common\NBLicense.cs" />
@@ -454,7 +452,6 @@
     <None Include="Install\vcredist_x86.exe" />
     <None Include="Install\WizModernImage-IS.bmp" />
     <None Include="Install\WizModernSmallImage-IS.bmp" />
-    <Content Include="Install\NBsoft.NAL.dll" />
     <Content Include="NBsoft.Appointment.iss" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -26,10 +26,10 @@ PrivilegesRequired=Admin
 MinVersion=0.0,5.0
 LicenseFile=.\Documents\Software_Disclaimer_Appointment.rtf
 UninstallDisplayIcon={app}\NBsoft.Appointment.WPF.exe
-AppVersion=1.0.0.21
-VersionInfoVersion=1.0.0.21
+AppVersion=1.1.0.22
+VersionInfoVersion=1.1.0.22
 ;OutputDir=D:\Share\Output\InvXPress\2017-01-12_1.0.0.167
-OutputDir=T:\NBsoft\Appointment\2017-03-14_1.0.0.21
+OutputDir=T:\NBsoft\Appointment\2017-06-05_1.1.0.22
 
 [Tasks]
 Name: desktopicon; Description: "Create &Desktop Shortcuts"; GroupDescription: "Additional Shortcuts:"; 
@@ -73,7 +73,6 @@ Source: .\bin\Release\x86\SQLite.Interop.dll; DestDir: {app}\x86; Flags:  ignore
 
 ;Server
 Source: .\bin\Release\NBsoft.Appointment.WPF.exe.config; DestDir: {app}; Flags:  ignoreversion; 
-Source: .\Install\NBsoft.NAL.dll; DestDir: {app}; Flags:  ignoreversion;
 #if IsX64
   ; <<========= Arquitectura x64 =========>>
 

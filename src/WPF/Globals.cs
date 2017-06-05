@@ -133,7 +133,7 @@ namespace NBsoft.Appointment.WPF
 
             }
 
-            string HardwareUIK = NBsoft.NAL.Shared.GetUIK();
+            string HardwareUIK = HardwareKey.GetUIK();
             Uri LicenseServer = new Uri("http://nbsoft.pt/V1/");
 //#if DEBUG
 //            LicenseServer = new Uri("http://localhost:63787/");
