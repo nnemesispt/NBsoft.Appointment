@@ -24,12 +24,12 @@ UsePreviousAppDir = yes
 AppCopyright=Nuno Benjamim Araújo - nunobaraujo@hotmail.com
 PrivilegesRequired=Admin
 MinVersion=0.0,5.0
-LicenseFile=.\Documents\Software_Disclaimer_Appointment.rtf
+LicenseFile=..\..\LICENSE.txt
 UninstallDisplayIcon={app}\NBsoft.Appointment.WPF.exe
 AppVersion=1.1.0.22
 VersionInfoVersion=1.1.0.22
-;OutputDir=D:\Share\Output\InvXPress\2017-01-12_1.0.0.167
-OutputDir=T:\NBsoft\Appointment\2017-06-05_1.1.0.22
+OutputDir=D:\Share\Output\Appointment\2017-06-05_1.1.0.22
+;OutputDir=T:\NBsoft\Appointment\2017-06-05_1.1.0.22
 
 [Tasks]
 Name: desktopicon; Description: "Create &Desktop Shortcuts"; GroupDescription: "Additional Shortcuts:"; 
@@ -52,8 +52,8 @@ Name: {commonappdata}\NBsoft\Appointment1.0
 [Files]      
 ; <<========= Sem Arquitectura =========>>
 ; License
-Source: .\Documents\Software_Disclaimer_Appointment.rtf; DestDir: {app}; Flags:  ignoreversion
-Source: .\Documents\THIRDPARTYLICENSEREADME.txt; DestDir: {app}; Flags:  ignoreversion
+Source: ..\..\LICENSE.txt; DestDir: {app}; Flags:  ignoreversion
+Source: ..\..\THIRDPARTYLICENSEREADME.txt; DestDir: {app}; Flags:  ignoreversion
 
 ; Manual                                                         
 ;Source: "..\Server\Documents\Manual1.0.pdf"; DestDir: {app}\Manual; Flags:  ignoreversion
@@ -109,7 +109,7 @@ Source: .\bin\Release\NBsoft.Appointment.WPF.exe.config; DestDir: {app}; Flags: 
 
 [Icons]
 Name: {group}\NBsoft Appointment;               Filename: {app}\NBsoft.Appointment.WPF.exe;           WorkingDir: {app};
-Name: {group}\License Agreement;                Filename: {app}\Software_Disclaimer_Appointment.rtf;  WorkingDir: {app}
+Name: {group}\License Agreement;                Filename: {app}\LICENSE.txt;                          WorkingDir: {app}
 Name: {group}\Uninstall NBsoft Appointment ;    Filename: {uninstallexe};                             WorkingDir: {app}
 Name: {userdesktop}\NBsoft Appointment;         Filename: {app}\NBsoft.Appointment.WPF.exe;           WorkingDir: {app}; Tasks: desktopicon; 
 
