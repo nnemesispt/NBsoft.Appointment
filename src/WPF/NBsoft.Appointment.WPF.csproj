@@ -133,11 +133,8 @@
     <Compile Include="Commands\OpenManualCommand.cs" />
     <Compile Include="Common\AppConfiguration.cs" />
     <Compile Include="Common\EventArgs\ErrorEventArgs.cs" />
-    <Compile Include="Common\EventArgs\LicenseEventArgs.cs" />
     <Compile Include="Common\HardwareKey.cs" />
-    <Compile Include="Common\LicenseManager.cs" />
     <Compile Include="Enums\LicenseType.cs" />
-    <Compile Include="Common\NBLicense.cs" />
     <Compile Include="Common\RijndaelSimple.cs" />
     <Compile Include="Common\EventArgs\TextEventArgs.cs" />
     <Compile Include="Content\AppointmentDetails.xaml.cs">

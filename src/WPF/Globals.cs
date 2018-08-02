@@ -10,7 +10,6 @@ using System.Windows;
 namespace NBsoft.Appointment.WPF
 {
     public delegate void LogEventHandler(object sender, LogEventArgs e);
-    public delegate void LicenseEventHandler(object sender, LicenseEventArgs e);
     public delegate void ErrorEventHandler(object sender, ErrorEventArgs e);
 
     public static class Globals
@@ -23,9 +22,6 @@ namespace NBsoft.Appointment.WPF
         private static Logger logger;
 
         public static Guid AppGuid = new Guid("CFA4837F-14B6-452A-A695-A13AD11B2501");
-
-        static LicenseManager LicenseMan;
-        public static NBLicense License { get; private set; }
 
         internal static string AppName { get { return string.Format("NBsoft.Appointment {0}", System.Reflection.Assembly.GetEntryAssembly().GetName().Version); } }
         internal static string CommonPath { get { return Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + @"\NBsoft\Appointment1.0"; } }
@@ -119,35 +115,10 @@ namespace NBsoft.Appointment.WPF
             string LangDir = InstallPath + @"\Dictionary";
             dicMan = new Dictionary.Manager(LangDir);
 
-            // License
-            string lic = System.IO.Path.Combine(Globals.CommonPath, "License.xml");
-            System.IO.FileInfo fi = new System.IO.FileInfo(lic);
-            if (!fi.Exists)
-            {
-                NBLicense l = new NBLicense();
-                using (System.IO.StreamWriter sw = new System.IO.StreamWriter(lic, false, Encoding.UTF8))
-                {
-                    sw.Write(l.ToXml());
-                    sw.Close();
-                }
-
-            }
-
-            string HardwareUIK = HardwareKey.GetUIK();
-            Uri LicenseServer = new Uri("http://nbsoft.pt/V1/");
-//#if DEBUG
-//            LicenseServer = new Uri("http://localhost:63787/");
-//#endif
-            LicenseMan = new LicenseManager(LicenseServer);
-            LicenseMan.CheckLicenseError += LicenseMan_CheckLicenseError;
-            LicenseMan.CheckLicenseFinished += LicenseMan_CheckLicenseFinished;
-            LicenseMan.CheckLicenseAsync(System.IO.Path.Combine(lic), HardwareUIK);
-
-
             // Logon
             LoggedUser = Windows.LogonWindow.Authenticate(null, Db.GetUser());
             if (LoggedUser == null)
-                System.Windows.Application.Current.Shutdown();
+                Application.Current.Shutdown();
             else
             {
                 // Start Main Window
@@ -157,41 +128,6 @@ namespace NBsoft.Appointment.WPF
 
 
         }
-
-        private static void LicenseMan_CheckLicenseError(object sender, ErrorEventArgs e)
-        {
-            Globals.LogError(e.Exception);
-
-            if (e.Exception.Message == "License Check Timelimit Hit")
-            {
-                // Maximum Timelimit without license Check reached.
-                License = null;
-            }
-            else
-            {
-                // Use Local License
-                string Xml = "";
-                try
-                {
-                    string lic = System.IO.Path.Combine(Globals.CommonPath, "License.xml");
-                    using (System.IO.StreamReader sr = new System.IO.StreamReader(lic, Encoding.UTF8, false))
-                    {
-                        Xml = sr.ReadToEnd();
-                        sr.Close();
-                    }
-                }
-                catch { Xml = ""; }
-                License = NBLicense.FromXml(Xml);
-            }
-        }
-
-        private static void LicenseMan_CheckLicenseFinished(object sender, LicenseEventArgs e)
-        {
-            // License is OK
-            License = e.License;
-            Globals.Log("LicenseManager", "License check OK: {0}", e.License.Name);
-        }
-
         private static void Maintenance_UpdateFinished(object sender, System.EventArgs e)
         {
             Log("DAL.Maintenance", "<<DB>> UPDATE FINISHED!");

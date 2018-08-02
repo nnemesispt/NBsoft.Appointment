@@ -104,28 +104,6 @@ namespace NBsoft.Appointment.WPF.Content
 
         private async void Taskbar_Save(object sender, EventArgs e)
         {
-            if (Globals.License == null)
-            {
-                ModernDialog.ShowMessage(Globals.DicMan.Get("app.invalidlicense"), Globals.AppName, MessageBoxButton.OK, Globals.MainWnd);
-                return;
-            }
-            // Removed License limits for freeware version
-            //if (Globals.License.LicenseTypeC != Enums.LicenseType.Pro)
-            //{
-            //    // Free License only allows 10 new appointments/month
-            //    if (viewModel.Appointment.Id == 0)
-            //    {
-            //        DateTime starDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
-            //        var appointments = Globals.Db.GetAppointment(starDate, DateTime.Today);
-            //        if (appointments.Length >= 10)
-            //        {
-            //            ModernDialog.ShowMessage(Globals.DicMan.Get("app.license.limitreached"), Globals.AppName, MessageBoxButton.OK, Globals.MainWnd);
-            //            return;
-            //        }
-            //    }
-            //}
-
-
             ShowWait();
             long[] result = await SaveAsync();
             HideWait();
@@ -142,28 +120,16 @@ namespace NBsoft.Appointment.WPF.Content
             }
         }        
         private void Taskbar_Add(object sender, EventArgs e)
-        {
-            if (Globals.License == null)
-            {
-                ModernDialog.ShowMessage(Globals.DicMan.Get("app.invalidlicense"), Globals.AppName, MessageBoxButton.OK, Globals.MainWnd);
-                return;
-            }
-            this.DataContext = null;
+        {  
+            DataContext = null;
             GetDataAsync(0);
-            this.DataContext = viewModel;
+            DataContext = viewModel;
         }
         private void Taskbar_Delete(object sender, EventArgs e)
-        {
-            if (Globals.License == null)
-            {
-                ModernDialog.ShowMessage(Globals.DicMan.Get("app.invalidlicense"), Globals.AppName, MessageBoxButton.OK, Globals.MainWnd);
-                return;
-            }
+        {  
             bool deleteOk = Delete();
             if (deleteOk)
-            {
-                this.DataContext = null;                
-            }
+                DataContext = null;
         }
                 
         private void BtnSearchCustomer_Click(object sender, RoutedEventArgs e)

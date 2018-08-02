@@ -318,7 +318,7 @@ namespace NBsoft.Appointment.WPF.Pages
 
         #region Event Handlers
 
-        private void DetailTab_SelectedSourceChanged(object sender, FirstFloor.ModernUI.Windows.Controls.SourceEventArgs e)
+        private void DetailTab_SelectedSourceChanged(object sender, SourceEventArgs e)
         {
             if (e.Source == null)
                 return;
@@ -327,14 +327,9 @@ namespace NBsoft.Appointment.WPF.Pages
             PopDetails(Id);
         }
 
-        public void OnFragmentNavigation(FirstFloor.ModernUI.Windows.Navigation.FragmentNavigationEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-        public void OnNavigatedFrom(FirstFloor.ModernUI.Windows.Navigation.NavigationEventArgs e)
-        {            
-        }
-        public void OnNavigatedTo(FirstFloor.ModernUI.Windows.Navigation.NavigationEventArgs e)
+        public void OnFragmentNavigation(FragmentNavigationEventArgs e) { }
+        public void OnNavigatedFrom(NavigationEventArgs e) { }
+        public void OnNavigatedTo(NavigationEventArgs e)
         {
             if (e.NavigationType != NavigationType.New)
                 Console.WriteLine(e.NavigationType);
@@ -342,47 +337,12 @@ namespace NBsoft.Appointment.WPF.Pages
             ClearData();
             LoadDataAsync();
         }
+        public void OnNavigatingFrom(NavigatingCancelEventArgs e) { }
 
-        public void OnNavigatingFrom(FirstFloor.ModernUI.Windows.Navigation.NavigatingCancelEventArgs e)
-        {
-            //throw new NotImplementedException();
-        }
-
-        private void Taskbar_Add(object sender, EventArgs e)
-        {
-            if (Globals.License == null)
-            {
-                ModernDialog.ShowMessage(Globals.DicMan.Get("app.invalidlicense"), Globals.AppName, MessageBoxButton.OK, Globals.MainWnd);
-                return;
-            }
-            Add();
-        }
-
-        private void Taskbar_Delete(object sender, EventArgs e)
-        {
-            if (Globals.License == null)
-            {
-                ModernDialog.ShowMessage(Globals.DicMan.Get("app.invalidlicense"), Globals.AppName, MessageBoxButton.OK, Globals.MainWnd);
-                return;
-            }
-            Delete();
-        }
-
-        private void Taskbar_Save(object sender, EventArgs e)
-        {
-            if (Globals.License == null)
-            {
-                ModernDialog.ShowMessage(Globals.DicMan.Get("app.invalidlicense"), Globals.AppName, MessageBoxButton.OK, Globals.MainWnd);
-                return;
-            }
-
-            Save();
-        }
-
-        private void Taskbar_Search(object sender, Common.TextEventArgs e)
-        {
-            FilterRecords(e.Text);
-        }
+        private void Taskbar_Add(object sender, EventArgs e) => Add();
+        private void Taskbar_Delete(object sender, EventArgs e) => Delete();
+        private void Taskbar_Save(object sender, EventArgs e) => Save();
+        private void Taskbar_Search(object sender, Common.TextEventArgs e) => FilterRecords(e.Text);
 
         #endregion
     }
