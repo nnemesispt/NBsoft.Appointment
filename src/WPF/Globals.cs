@@ -23,8 +23,9 @@ namespace NBsoft.Appointment.WPF
 
         public static Guid AppGuid = new Guid("CFA4837F-14B6-452A-A695-A13AD11B2501");
 
+        internal static Version AppVersion => System.Reflection.Assembly.GetEntryAssembly().GetName().Version;
         internal static string AppName { get { return string.Format("NBsoft.Appointment {0}", System.Reflection.Assembly.GetEntryAssembly().GetName().Version); } }
-        internal static string CommonPath { get { return Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + @"\NBsoft\Appointment1.0"; } }
+        internal static string CommonPath { get { return Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + $"\\NBsoft\\Appointment{AppVersion.Major}.{AppVersion.Minor}"; } }
         internal static string InstallPath { get { return System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location); } }
         internal static string ConfigurationFile { get { return CommonPath + @"\Config.xml"; } }
         internal static Logger Logger { get { return logger; } }

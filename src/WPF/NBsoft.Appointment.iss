@@ -10,26 +10,26 @@ AppSupportURL=www.nbsoft.pt
 #if IsX64
   ArchitecturesInstallIn64BitMode = x64 
   ArchitecturesAllowed = x64
-  OutputBaseFilename=NBsoft.Appointment.1.0_x64
+  OutputBaseFilename=NBsoft.Appointment.1.1_x64
 #else
   ArchitecturesAllowed = x86 x64
-  OutputBaseFilename=NBsoft.Appointment.1.0_AnyCPU
+  OutputBaseFilename=NBsoft.Appointment.1.1_AnyCPU
 #endif
 AllowNoIcons=no
 WizardImageFile=.\Install\WizModernImage-IS.bmp
 WizardSmallImageFile=.\Install\WizModernSmallImage-IS.bmp
 DefaultGroupName="NBsoft.Appointment"
-DefaultDirName={pf}\NBsoft\Appointment1.0
+DefaultDirName={pf}\NBsoft\Appointment1.1
 UsePreviousAppDir = yes
 AppCopyright=Nuno Benjamim Araújo - nunobaraujo@hotmail.com
 PrivilegesRequired=Admin
 MinVersion=0.0,5.0
 LicenseFile=..\..\LICENSE.txt
 UninstallDisplayIcon={app}\NBsoft.Appointment.WPF.exe
-AppVersion=1.1.0.22
-VersionInfoVersion=1.1.0.22
-OutputDir=D:\Share\Output\Appointment\2017-06-05_1.1.0.22
-;OutputDir=T:\NBsoft\Appointment\2017-06-05_1.1.0.22
+AppVersion=1.1.23
+VersionInfoVersion=1.1.23
+;OutputDir=D:\Share\Output\Appointment\2017-06-05_1.1.23
+OutputDir=T:\NBsoft\Appointment\2018-08-02_1.1.23
 
 [Tasks]
 Name: desktopicon; Description: "Create &Desktop Shortcuts"; GroupDescription: "Additional Shortcuts:"; 
@@ -47,7 +47,7 @@ Name: desktopicon; Description: "Create &Desktop Shortcuts"; GroupDescription: "
 
 [DIRS]
 Name: {commonappdata}\NBsoft; Permissions: everyone-modify
-Name: {commonappdata}\NBsoft\Appointment1.0
+Name: {commonappdata}\NBsoft\Appointment1.1
               
 [Files]      
 ; <<========= Sem Arquitectura =========>>
